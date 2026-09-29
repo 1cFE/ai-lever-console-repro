@@ -1,0 +1,49 @@
+{
+  "model": {
+    "library": "costingfe",
+    "commit": "ac2d1a8d07d0d9cbe5f0ca6e88db2fcbf477c093",
+    "short": "ac2d1a8"
+  },
+  "concept": {
+    "confinement": "TOKAMAK",
+    "fuel": "DT",
+    "concept_yaml": "inputs/steady_state_tokamak.yaml",
+    "constants_yaml": "inputs/costing_constants.yaml"
+  },
+  "inputs": {
+    "cas22_mult": 1.0,
+    "net_electric_mw": 1000.0,
+    "size_from_power": true,
+    "availability": 0.85,
+    "lifetime_yr": 30.0,
+    "interest_rate": 0.07,
+    "noak": true,
+    "indirect_fraction": 0.2,
+    "construction_time_yr": 6.0
+  },
+  "solved": {
+    "lcoe": 108.87106143869212,
+    "total_capital": 8460.83150461176,
+    "overnight_cost": 7096.732240845953,
+    "capital_per_kw": 8460.831504611759,
+    "cas10": 18.5,
+    "cas20": 5396.310765653697,
+    "cas21": 669.4102115959789,
+    "cas22": 4146.301916110786,
+    "cas23": 258.28418147104725,
+    "cas24": 110.01653164611754,
+    "cas25": 66.96492360265418,
+    "cas26": 111.60820600442362,
+    "cas27": 28.72479522268938,
+    "cas28": 5.0,
+    "cas30": 1079.2621531307393,
+    "cas40": 41.2,
+    "cas50": 561.459322061517,
+    "cas60": 1364.099263765808,
+    "cas70": 126.89646558884016,
+    "cas71": 75.93582284288198,
+    "cas72": 50.96064274595818,
+    "cas80": 0.7706479845210722,
+    "cas90": 681.8279816701653
+  }
+}

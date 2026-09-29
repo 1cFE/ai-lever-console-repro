@@ -1,0 +1,335 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>AI Lever Console — Bending Fusion's Cost Curve</title>
+<style>
+  :root{
+    --bg:#f5f6fb; --surface:#fff; --surface2:#eceef6; --text:#181b28; --muted:#5a6178;
+    --border:#e2e5ef; --accent:#5b6ee1; --accent2:#8b5cf6;
+    --green:#2f9e6f; --amber:#d68a2b; --red:#d24b57;
+    --shadow:0 1px 2px rgba(20,24,45,.05),0 10px 30px rgba(20,24,45,.07);
+    --track:#dfe2ee;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --bg:#0c0e15; --surface:#151824; --surface2:#1d2233; --text:#e9ebf3; --muted:#98a0b8;
+    --border:#262b3b; --accent:#7d8bf5; --accent2:#a78bfa;
+    --green:#3bbd85; --amber:#e8a13f; --red:#e8636e; --track:#2a3040;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 34px rgba(0,0,0,.4);
+  }}
+  :root[data-theme="light"]{--bg:#f5f6fb;--surface:#fff;--surface2:#eceef6;--text:#181b28;--muted:#5a6178;--border:#e2e5ef;--accent:#5b6ee1;--accent2:#8b5cf6;--green:#2f9e6f;--amber:#d68a2b;--red:#d24b57;--track:#dfe2ee;--shadow:0 1px 2px rgba(20,24,45,.05),0 10px 30px rgba(20,24,45,.07);}
+  :root[data-theme="dark"]{--bg:#0c0e15;--surface:#151824;--surface2:#1d2233;--text:#e9ebf3;--muted:#98a0b8;--border:#262b3b;--accent:#7d8bf5;--accent2:#a78bfa;--green:#3bbd85;--amber:#e8a13f;--red:#e8636e;--track:#2a3040;--shadow:0 1px 2px rgba(0,0,0,.3),0 12px 34px rgba(0,0,0,.4);}
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+  .wrap{max-width:1120px;margin:0 auto;padding:clamp(18px,3.5vw,40px)}
+  .mono{font-family:ui-monospace,"SF Mono","Cascadia Code",Menlo,monospace}
+  .num{font-variant-numeric:tabular-nums}
+  h1{font-size:clamp(23px,3.2vw,33px);line-height:1.1;letter-spacing:-.02em;margin:0 0 8px;text-wrap:balance;font-weight:680}
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 8px}
+  .sub{color:var(--muted);font-size:15px;max-width:72ch;margin:0}
+
+  .grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:20px;margin-top:26px;align-items:start}
+  @media (max-width:880px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+  .gauge-card{position:sticky;top:18px}
+  @media (max-width:880px){.gauge-card{position:static}}
+
+  .readout{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .lcoe-big{font-size:clamp(38px,7vw,56px);font-weight:700;letter-spacing:-.02em;line-height:1}
+  .lcoe-unit{color:var(--muted);font-size:16px;font-weight:500}
+  .redux{font-size:15px;font-weight:600;color:var(--accent)}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}
+  .chip{font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:999px;border:1px solid var(--border);display:inline-flex;gap:6px;align-items:center}
+  .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+  .chip.good{background:color-mix(in srgb,var(--green) 15%,transparent);border-color:color-mix(in srgb,var(--green) 45%,transparent);color:var(--green)}
+  .chip.good .dot{background:var(--green)}
+  .chip.warn{background:color-mix(in srgb,var(--amber) 15%,transparent);border-color:color-mix(in srgb,var(--amber) 45%,transparent);color:var(--amber)}
+  .chip.warn .dot{background:var(--amber)}
+  .chip.bad{background:color-mix(in srgb,var(--red) 15%,transparent);border-color:color-mix(in srgb,var(--red) 45%,transparent);color:var(--red)}
+  .chip.bad .dot{background:var(--red)}
+
+  .gauge{position:relative;height:82px;margin:24px 0 6px}
+  .gauge .rail{position:absolute;left:0;right:0;top:30px;height:16px;border-radius:8px;background:var(--track);overflow:hidden}
+  .gauge .fill{position:absolute;top:0;bottom:0;background:linear-gradient(90deg,color-mix(in srgb,var(--accent) 55%,transparent),var(--accent));transition:left .18s ease,width .18s ease}
+  .ref{position:absolute;top:22px;height:32px;width:2px;background:var(--muted);opacity:.5}
+  .ref.target{background:var(--green);opacity:.9;width:2.5px}
+  .ref-label{position:absolute;font-size:10.5px;color:var(--muted);white-space:nowrap;transform:translateX(-50%);top:66px}
+  .ref-label.target{color:var(--green);font-weight:600}
+  .needle{position:absolute;top:14px;height:48px;width:3px;background:var(--text);border-radius:2px;transition:left .18s ease;z-index:3}
+  .needle.good{background:var(--green)}
+  .needle-cap{position:absolute;top:0;transform:translateX(-50%);font-size:12px;font-weight:700;background:var(--text);color:var(--bg);padding:2px 7px;border-radius:6px;white-space:nowrap;transition:left .18s ease;z-index:4}
+  .needle-cap.good{background:var(--green)}
+
+  .buckets{margin-top:20px}
+  .buckets .bar{display:flex;height:26px;border-radius:6px;overflow:hidden;border:1px solid var(--border);background:var(--track)}
+  .buckets .seg{height:100%;transition:width .18s ease}
+  .buckets .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;font-size:12px;color:var(--muted)}
+  .buckets .legend span{display:inline-flex;gap:5px;align-items:center}
+  .sw{width:10px;height:10px;border-radius:2px;display:inline-block}
+
+  .aha{margin-top:16px;font-size:13.5px;line-height:1.5;padding:12px 14px;border-radius:10px;background:var(--surface2);border:1px solid var(--border)}
+  .aha b{color:var(--text)}
+
+  .lever{padding:14px 0;border-bottom:1px solid var(--border)}
+  .lever:last-child{border-bottom:none}
+  .lever .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:9px}
+  .lever .name{font-weight:640;font-size:14.5px}
+  .lever .tag{font-size:11px;color:var(--muted)}
+  .lever .val{font-weight:700;font-size:15px;white-space:nowrap}
+  .lever .val small{font-weight:500;color:var(--muted);font-size:12px}
+  .slider-wrap{position:relative;height:30px}
+  .zone{position:absolute;left:0;right:0;top:11px;height:8px;border-radius:5px}
+  input[type=range]{position:absolute;top:0;left:0;width:100%;height:30px;margin:0;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer}
+  input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,.25);margin-top:5px;transition:border-color .15s,box-shadow .15s}
+  input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,.25)}
+  .lever.z-amber input::-webkit-slider-thumb{border-color:var(--amber)}
+  .lever.z-amber input::-moz-range-thumb{border-color:var(--amber)}
+  .lever.z-red input::-webkit-slider-thumb{border-color:var(--red);box-shadow:0 0 0 4px color-mix(in srgb,var(--red) 25%,transparent)}
+  .lever.z-red input::-moz-range-thumb{border-color:var(--red);box-shadow:0 0 0 4px color-mix(in srgb,var(--red) 25%,transparent)}
+
+  .explain{margin-top:11px;font-size:12.5px;line-height:1.5;color:var(--muted);padding:10px 13px;border-radius:9px;background:var(--surface2);border-left:3px solid var(--green)}
+  .explain .zlabel{font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--green);display:block;margin-bottom:5px}
+  .explain b{color:var(--text);font-weight:640}
+  .explain em{color:var(--text);font-style:italic}
+  .lever.z-amber .explain{border-left-color:var(--amber)} .lever.z-amber .explain .zlabel{color:var(--amber)}
+  .lever.z-red .explain{border-left-color:var(--red)} .lever.z-red .explain .zlabel{color:var(--red)}
+
+  .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+  button{font:inherit;font-size:13px;font-weight:600;padding:8px 14px;border-radius:9px;border:1px solid var(--border);background:var(--surface2);color:var(--text);cursor:pointer;transition:background .15s,border-color .15s}
+  button:hover{border-color:var(--accent)}
+  button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  button.ghost{background:transparent}
+  .zonekey{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:14px}
+  .zonekey span{display:inline-flex;gap:6px;align-items:center}
+
+  footer{margin-top:22px;color:var(--muted);font-size:12px;line-height:1.6}
+  footer code{font-family:ui-monospace,Menlo,monospace;font-size:11px;background:var(--surface2);padding:1px 5px;border-radius:4px}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">1costingFE · 1 GWe D-T tokamak · NOAK</p>
+    <h1>How Can AI Bend the Fusion Cost Curve?</h1>
+    <p class="sub">The $109/MWh baseline already assumes a cautiously optimistic <em>nth-of-a-kind</em> (NOAK) plant with a 7% WACC and a 30-yr lifespan. This tool asks how much <em>further</em> AI could push each lever from there. Drag one, and the box beneath it explains <em>exactly how</em> AI delivers that reduction — the mechanism shifting as you push: <span style="color:var(--green);font-weight:600">demonstrated</span> → <span style="color:var(--amber);font-weight:600">qualification-gated</span> → <span style="color:var(--red);font-weight:600">breakthrough-gated</span>. Watch the levelized cost move downwards, and read about what each step actually requires.</p>
+  </header>
+
+  <div class="grid">
+    <div class="card gauge-card">
+      <div class="readout">
+        <span class="lcoe-big num" id="lcoe">$108.9</span>
+        <span class="lcoe-unit">/MWh</span>
+        <span class="redux num" id="redux"></span>
+      </div>
+      <div class="chips">
+        <span class="chip" id="optimism"><span class="dot"></span><span id="optimism-txt">Grounded</span></span>
+      </div>
+
+      <div class="gauge" id="gauge">
+        <div class="rail"><div class="fill" id="fill"></div></div>
+      </div>
+
+      <div class="buckets">
+        <div class="bar" id="bbar">
+          <div class="seg" id="seg-cap" style="background:var(--accent)"></div>
+          <div class="seg" id="seg-om" style="background:var(--accent2)"></div>
+          <div class="seg" id="seg-rep" style="background:var(--amber)"></div>
+        </div>
+        <div class="legend">
+          <span><i class="sw" style="background:var(--accent)"></i>Capital <b class="mono num" id="v-cap"></b></span>
+          <span><i class="sw" style="background:var(--accent2)"></i>O&amp;M <b class="mono num" id="v-om"></b></span>
+          <span><i class="sw" style="background:var(--amber)"></i>Replacement <b class="mono num" id="v-rep"></b></span>
+        </div>
+      </div>
+
+      <div class="aha" id="aha">Move a lever to begin.</div>
+    </div>
+
+    <div class="card">
+      <div id="levers"></div>
+      <div class="controls">
+        <button data-preset="reasonable">Reasonable</button>
+        <button data-preset="optimistic">Optimistic</button>
+        <button data-preset="heroic">Heroic</button>
+        <button class="ghost" data-preset="reset">Reset</button>
+      </div>
+      <div class="zonekey">
+        <span><i class="sw" style="background:var(--green)"></i>Demonstrated / near-term</span>
+        <span><i class="sw" style="background:var(--amber)"></i>Qualification-gated stretch</span>
+        <span><i class="sw" style="background:var(--red)"></i>Breakthrough-gated</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Client-side surrogate of the <code>costingfe</code> model, pinned to commit <code>ac2d1a8</code> and fit to a 6-point DOE. It reproduces the full model to <b>within 0.03%</b> across the whole lever range, and exactly at the $108.87/MWh baseline. Anchor: 1 GWe net D-T tokamak, <code>size_from_power</code>, availability 0.85→lever, life 30 yr, interest 7%, NOAK, indirect fraction 0.20, 6-yr build. Boundary: gross LCOE at the busbar, before adoption costs — no transmission, storage, curtailment or capacity revenue. Zone boundaries and mechanisms follow the "Can AI Bend the Fusion Cost Curve?" framework.
+  </footer>
+</div>
+
+<script>
+"use strict";
+// Surrogate of costingfe @ ac2d1a8, fit to a 6-point DOE. Rather than
+// interpolating total capital between DOE corners, this reproduces the model's
+// own identity: overnight cost is linear in build time (only CAS30 carries it,
+// plus the construction insurance stacked on it), and CAS60 interest during
+// construction is an exact nonlinear factor on top:
+//     overnight(u,c,indf) = A(u) + indf * CAS20(u) * (c/6) * 1.015
+//     TC                  = overnight * (1 + f_IDC(c))
+// That is exact to 0.0000% against the full model over the whole lever range.
+// KCAL corrects the nameplate denominator: size_from_power lands at ~998.6 MWe
+// net, not the 1000 the energy term below assumes.
+const CRF=0.0805864, KCAL=1.0014319, BASE=108.8711;
+function fIDC(c){const i=0.07;return (Math.pow(1+i,c)-1)/(i*c)-1;}
+function cas20of(u){return 5396.31-4146.30*u;}
+function Aof(u){return 6001.28-4312.15*u;}
+function TCadj(u,c,indf){
+  const overnight=Aof(u)+indf*cas20of(u)*(c/6)*1.015;
+  return overnight*(1+fIDC(c));}
+function buckets(u,c,a,om,indf){
+  const cap=CRF*TCadj(u,c,indf), c71=(70.153+1.4457*(c-2))*(1-om);
+  // CAS72 is not continuous: above a capacity factor of 0.969379 one more
+  // in-vessel replacement fits into the 30-yr life, a discrete +6.31 M$/yr.
+  // That threshold sits inside this lever's range, so the step is explicit;
+  // a straight line through it is wrong by ~1% of LCOE at the top of the lever.
+  const c72=(1-u)*(50.9606+53.944*(a-0.85)+(a>=0.969379?6.3100:0));
+  const c80=0.7706+0.9066*(a-0.85);
+  const E=8760*1000*a/1e6;
+  return {cap:cap/E*KCAL, om:c71/E*KCAL, rep:c72/E*KCAL, fuel:c80/E*KCAL};
+}
+function lcoeOf(s){
+  const indf=(20-(s.site||0))/100;
+  const b=buckets(s.reactor/100, 6*(1-s.constr/100), 0.85+s.cf/100, s.om/100, indf);
+  return {total:b.cap+b.om+b.rep+b.fuel, b};
+}
+const r0=v=>Math.round(v);
+
+const LEVERS=[
+  {id:"site",   name:"Site engineering & delivery",unit:"% of CAPEX",max:15,z:[5,10],tag:"indirect fraction (CAS30) · nominally 20% of direct cost"},
+  {id:"constr", name:"Construction time",unit:"% faster",max:67,z:[17,33],tag:"schedule → interest during construction · nominally 6 years"},
+  {id:"reactor",name:"Reactor capital",unit:"% cut",max:80,z:[25,40],tag:"CAS22 reactor plant · nominally ~$4.1B/GWe"},
+  {id:"cf",     name:"Capacity factor",unit:"+pts",max:11.5,z:[5,9],tag:"availability · nominally 85%"},
+  {id:"om",     name:"O&M",unit:"% cut",max:55,z:[20,35],tag:"operations & maintenance · nominally ~$76M/yr (≈9% of LCOE)"},
+];
+
+// zone-specific mechanism copy; v = current slider value
+const TXT={
+ reactor:{
+  green:v=>`<b>Margin recovery + factory yield.</b> FOAK designs price conservatism as mass — extra shield thickness, breeding-blanket margin, divertor heat-flux and magnet-quench headroom. ML trained on FOAK operating and test data shrinks those margins, thinning the nuclear island toward a <b>−${v}%</b> reactor-capital cut. Reinforced by AI process-control / defect-prediction lifting factory yield (demonstrated in additive manufacturing and semiconductors — the strongest transferable claim).`,
+  amber:v=>`<b>Margin recovery stacked with new materials.</b> Past ~25%, design-margin savings run out; a <b>−${v}%</b> cut needs ML-designed radiation-tolerant tungsten/steels and generative crystal-structure search (GNoME, MatterGen) to allow genuinely thinner, cheaper components. Real, but <em>qualification-gated</em> — the alloys must survive fusion-fluence testing before the saving is bankable.`,
+  red:v=>`<b>Breakthrough needed:</b> beyond design optimization and margin recovery, it takes a step-change in the cost basis itself — a superconductor advance that collapses HTS-magnet $/kA·m (the dominant CAS22 line), or a more compact confinement class. AI can accelerate this search across every domain — plasma, wall materials, magnets, whole-system design. But it cannot conjure the result: a <b>−${v}%</b> cut needs a physical breakthrough that still has to be invented, built, and qualified in hardware.`,
+ },
+ constr:{
+  green:v=>`<b>AI build-planning — the "quiet win."</b> Generative construction scheduling explores thousands of crew/crane/laydown sequences (ALICE Technologies); ML schedule-risk forecasting trained on historical megaproject schedules (nPlan); computer-vision site tracking against the model (Buildots; Bechtel piloting); and ML weather forecasting (GraphCast-class models) to time weather-sensitive pours and crane lifts around delays. Trims schedule contingency for a <b>−${v}% faster</b> build, lowering interest during construction.`,
+  amber:v=>`<b>Design-pipeline compression reaching the field.</b> A <b>−${v}%</b> schedule needs a design frozen earlier with fewer field reworks, plus AI-optimized modular/factory fabrication sequencing. Plausible, but it depends on the whole engineering pipeline moving — not just the scheduler.`,
+  red:v=>`<b>Breakthrough needed:</b> reaching a <b>−${v}%</b> build takes unprecedented robotic build automation — autonomous welding, placement, and heavy equipment running lights-out, 24/7, at nuclear-construction quality — to break the human, single-shift pace of the site. Even then, concrete cure and the statutory review-and-inspection clock stay hard floors: reform there is industrial and regulatory, not analytical.`,
+ },
+ cf:{
+  green:v=>`<b>Advisory-mode uptime.</b> AI health-monitoring drives condition-based (not fixed-interval) maintenance; disruption prediction feeds advisory setpoints; AI-sequenced remote handling shortens in-vessel campaigns — cutting both downtime and O&M. Lifts capacity factor <b>+${v} pts</b> — all from AI in an advisory seat, with verified deterministic control still in command of the plant.`,
+  amber:v=>`<b>Materials that shorten the outage.</b> Further uptime comes not from the controller but from the dominant downtime driver — scheduled in-vessel replacement. ML-designed, more damage-tolerant plasma-facing materials and faster-swap component designs shorten and space out blanket/divertor campaigns for <b>+${v} pts</b>.`,
+  red:v=>`<b>Breakthrough needed:</b> the last points hit a physical and a grid ceiling at once. <b>+${v} pts</b> (>0.94 capacity factor) needs a first wall/blanket/divertor that barely needs scheduled replacement (a materials breakthrough) and near-disruption-free operation, plus a regulator accepting a learning controller in the safety loop. And even a perfectly <em>available</em> plant gets curtailed when a high-renewables grid is saturated — holding the top few points then takes onsite storage or flexible offtake (hydrogen, heat), an infrastructure fix beyond any plant-side AI.`,
+ },
+ om:{
+  green:v=>`<b>Leaner, augmented operations.</b> I&C augmentation and automation shrink the permanent crew; remote monitoring moves roles off-site; condition-based maintenance cuts interventions and parts; and AI-driven maintenance scheduling allows for shared specialist crews and spare parts across a fleet of powerplants, optimizing the complex distribution logistics — together a <b>−${v}%</b> O&M cut. (O&M is ~9% of LCOE — a small lever.)`,
+  amber:v=>`<b>Graded autonomy + fleet operations centers.</b> A <b>−${v}%</b> cut still sits within the regulator-set minimum staffing floor, but getting there needs off-site operating centers serving many units and reduced on-shift staffing — real in aviation and fission-fleet analogs, and dependent on regulatory acceptance of the reduced-staffing model plus demonstrated reliability.`,
+  red:v=>`<b>Breakthrough needed:</b> a licensing-framework change. A <b>−${v}%</b> O&M cut falls below the regulator-set minimum staffing floor; reaching it means accepting largely remote/unstaffed operation — an institutional shift, not an AI capability (and worth only a point or two of LCOE regardless).`,
+ },
+ site:{
+  green:v=>{const cut=Math.round((20-v)/20*100);return `<b>AI-managed site adaptation.</b> At NOAK the design is already frozen, so the recurring cost is per-site engineering and project delivery. AI already tightens this: generative site-adaptation fits a standard design to local constraints without violating physical or regulatory limits. In the (mostly civil) engineering design work required for site adaptation, AI plays an assistive role. Near-term AI models still struggle with spatial reasoning. Additionally, LLMs can significantly accelerate the paperwork involved in pre-construction licensing and permitting. Trims the indirect fraction for a <b>−${cut}%</b> cut.`;},
+  amber:v=>`<b>From assistant to author.</b> Cutting the indirect cost fraction to <b>${v}% of CAPEX</b> needs standardized, machine-readable engineering that regulators and QA accept without re-review. The unlock is tools that genuinely reason in 3D and plug natively into CAD/BIM — generative structural and foundation design validated against codes via physics-in-the-loop, with BIM-FEM interoperability closing the design-to-analysis loop, so the heavy civil engineering itself is automated, not just the paperwork. Through demonstrated reliability over long periods, AI tools could even be trusted to circumvent the human design-review bottleneck and streamline the pre-construction phase. A ${v}% indirect fraction is credible, but gated on acceptance of AI-produced engineering and improved spatial reasoning within AI tools.`,
+  red:v=>{const cut=Math.round((20-v)/20*100);return `<b>Breakthrough needed:</b> below ~10% of CAPEX you hit the irreducible floor — human oversight, interface and configuration management, and statutory design review. A <b>−${cut}%</b> cut needs a wholesale change in how nuclear engineering is reviewed and licensed: largely-autonomous engineering accepted with minimal human sign-off. Institutional and regulatory, not an AI tooling gain.`;},
+ },
+};
+const ZLABEL={green:"Demonstrated / near-term",amber:"Qualification-gated stretch",red:"Breakthrough-gated"};
+
+const PRESETS={
+  reset:      {reactor:0, constr:0,   cf:0,  om:0,  site:0},
+  reasonable: {reactor:25,constr:16.7,cf:5,  om:20, site:5},
+  optimistic: {reactor:44,constr:41.7,cf:8,  om:35, site:10},
+  heroic:     {reactor:65,constr:66.7,cf:11, om:50, site:14},
+};
+const state={reactor:0,constr:0,cf:0,om:0,site:0};
+
+const host=document.getElementById("levers");
+LEVERS.forEach(L=>{
+  const z1=L.z[0]/L.max*100, z2=L.z[1]/L.max*100;
+  const el=document.createElement("div");
+  el.className="lever"; el.id="lever-"+L.id;
+  el.innerHTML=`
+    <div class="top">
+      <div><div class="name">${L.name}</div><div class="tag">${L.tag}</div></div>
+      <div class="val"><span id="val-${L.id}">0</span> <small>${L.unit}</small></div>
+    </div>
+    <div class="slider-wrap">
+      <div class="zone" style="background:linear-gradient(90deg,var(--green) 0 ${z1}%,var(--amber) ${z1}% ${z2}%,var(--red) ${z2}% 100%);opacity:.28"></div>
+      <input type="range" min="0" max="${L.max}" step="0.5" value="0" id="rng-${L.id}" aria-label="${L.name} ${L.unit}">
+    </div>
+    <div class="explain" id="exp-${L.id}"><span class="zlabel">Demonstrated / near-term</span><span id="exptxt-${L.id}"></span></div>`;
+  host.appendChild(el);
+  el.querySelector("input").addEventListener("input",e=>{state[L.id]=parseFloat(e.target.value);clearActive();render();});
+});
+
+const scaleMin=10, scaleMax=110, pos=v=>(v-scaleMin)/(scaleMax-scaleMin)*100;
+const gauge=document.getElementById("gauge");
+[{v:20,l:"$20 hard floor"},{v:48,l:"≈$48 AI-optimistic floor"},{v:BASE,l:"$108.9 baseline"}].forEach(r=>{
+  const line=document.createElement("div"); line.className="ref"+(r.t?" target":""); line.style.left=pos(r.v)+"%"; gauge.appendChild(line);
+  const lab=document.createElement("div"); lab.className="ref-label"+(r.t?" target":""); lab.textContent=r.l; lab.style.left=pos(r.v)+"%"; gauge.appendChild(lab);
+});
+const needle=document.createElement("div"); needle.className="needle"; gauge.appendChild(needle);
+const cap=document.createElement("div"); cap.className="needle-cap"; gauge.appendChild(cap);
+const fill=document.getElementById("fill");
+
+const zoneOf=(L,v)=>v<=L.z[0]?"green":v<=L.z[1]?"amber":"red";
+function clearActive(){document.querySelectorAll("[data-preset]").forEach(b=>b.classList.remove("active"));}
+
+function render(){
+  let worst="green";
+  LEVERS.forEach(L=>{
+    const v=state[L.id];
+    const disp=L.id==="site"?(20-v):v;
+    document.getElementById("val-"+L.id).textContent=(L.id==="cf"?"+":"")+(disp%1?disp.toFixed(1):disp);
+    document.getElementById("rng-"+L.id).value=v;
+    const z=zoneOf(L,v);
+    const el=document.getElementById("lever-"+L.id);
+    el.classList.toggle("z-amber",z==="amber"); el.classList.toggle("z-red",z==="red");
+    el.querySelector(".zlabel").textContent=ZLABEL[z];
+    document.getElementById("exptxt-"+L.id).innerHTML=TXT[L.id][z](L.id==="site"?r0(20-v):r0(v));
+    if(z==="red")worst="red"; else if(z==="amber"&&worst!=="red")worst="amber";
+  });
+  const {total,b}=lcoeOf(state);
+  const redPct=(1-total/BASE)*100;
+  document.getElementById("lcoe").textContent="$"+total.toFixed(1);
+  document.getElementById("redux").textContent=(redPct>0.5?"−"+redPct.toFixed(0)+"%":"");
+  const p=Math.max(0,Math.min(100,pos(total)));
+  needle.style.left=p+"%"; cap.style.left=p+"%"; cap.textContent="$"+total.toFixed(1);
+  fill.style.left=p+"%"; fill.style.width=Math.max(0,pos(BASE)-p)+"%";
+  document.getElementById("seg-cap").style.width=(b.cap/BASE*100)+"%";
+  document.getElementById("seg-om").style.width=(b.om/BASE*100)+"%";
+  document.getElementById("seg-rep").style.width=((b.rep+b.fuel)/BASE*100)+"%";
+  document.getElementById("v-cap").textContent="$"+b.cap.toFixed(1);
+  document.getElementById("v-om").textContent="$"+b.om.toFixed(1);
+  document.getElementById("v-rep").textContent="$"+(b.rep+b.fuel).toFixed(1);
+  const reactorZone=zoneOf(LEVERS.find(L=>L.id==="reactor"),state.reactor);
+  const oc=document.getElementById("optimism"), ot=document.getElementById("optimism-txt");
+  oc.className="chip "+(worst==="red"?"bad":worst==="amber"?"warn":"good");
+  ot.textContent=worst==="red"?"Breakthrough-gated assumptions":worst==="amber"?"Qualification-gated stretch":"Grounded";
+  const aha=document.getElementById("aha");
+  if(total>=BASE-0.2){
+    aha.innerHTML="<b>Baseline.</b> In this NOAK case, capital is ~84% of LCOE — so reactor capital is the dominant lever. Capacity factor (the LCOE denominator) and construction schedule each pull meaningfully too, though both are bounded; site engineering and O&M move it least. Drag them to see how far each really gets.";
+  }else if(reactorZone==="red"){
+    aha.innerHTML=`This <b>−${redPct.toFixed(0)}%</b> mostly rides on driving reactor capital into the <span style="color:var(--red);font-weight:700">breakthrough-gated</span> zone — a <b>${r0(state.reactor)}% cut</b>, ~${(state.reactor/25).toFixed(1)}× margin recovery's plausible depth. That's the crux: deep cost-down needs a physical breakthrough on the one dominant lever, not analytics on the rest.`;
+  }else{
+    aha.innerHTML=`A <b>−${redPct.toFixed(0)}%</b> reduction so far. The supporting levers (schedule, capacity factor, site engineering, O&amp;M) are near their limits — to bend the curve much further, reactor capital has to move into the <span style="color:var(--red);font-weight:700">breakthrough-gated</span> band.`;
+  }
+}
+
+document.querySelectorAll("[data-preset]").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    Object.assign(state,PRESETS[btn.dataset.preset]);
+    document.querySelectorAll("[data-preset]").forEach(b=>b.classList.remove("active"));
+    if(btn.dataset.preset!=="reset")btn.classList.add("active");
+    render();
+  });
+});
+render();
+</script>
+
+</body></html>

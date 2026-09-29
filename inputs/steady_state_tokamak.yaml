@@ -1,0 +1,119 @@
+# Default engineering parameters for MFE tokamak
+
+p_input: 50.0       # Heating power [MW]
+
+# Heating mix for CAS22 costing (must sum to p_input). Balanced modern-tokamak
+# mix (ITER-class NBI + ICRF + ECRH); a generic DT tokamak uses several methods,
+# not pure NBI. Analysts override per design (ARC is LHCD+ICRF, SPARC ICRF).
+p_nbi: 20.0         # NBI heating [MW]
+p_ecrh: 15.0        # ECRH heating [MW]
+p_icrf: 15.0        # ICRF heating [MW]
+p_lhcd: 0.0         # LHCD heating [MW]
+
+mn: 1.1             # Neutron energy multiplier
+eta_p: 0.5          # Pumping efficiency
+# Plasma coupling, applied to every heating method; per-method source
+# efficiencies differ via eta_source_* (NBI 0.60, ICRF 0.70, ECRH 0.50), so the
+# mix-weighted eta_pin is computed in _effective_eta_pin.
+eta_couple: 0.8333
+eta_de: 0.85        # DEC efficiency
+f_sub: 0.03         # Subsystem power fraction
+f_dec: 0.0          # DEC fraction (0 = no DEC)
+p_coils: 2.0        # Coil power [MW]
+p_cool: 13.7        # Cooling power [MW]
+p_pump: 1.0         # Pumping power [MW]
+p_trit: 10.0        # Tritium processing power [MW]
+p_house: 4.0        # Housekeeping power [MW]
+p_cryo: 0.5         # Cryogenic power [MW]
+
+# Coil. The toroidal coil-cost ampere-meters scale bilinearly as
+# G * b_center * R0 * r_coil, where r_coil is the vessel outer radius from the
+# radial build. The on-axis center field b_center is the same physical quantity
+# as the plasma field B for a tokamak, so the model derives b_center from B; it
+# is not stored here (avoids a second field value that could drift from B).
+coil_material: rebco_hts  # HTS REBCO superconductor (ARC-class, B_max 23 T)
+
+# Radial build geometry [m] — conventional aspect-ratio tokamak.
+# R0, plasma_t (a) and B are the self-consistent operating point solved by
+# size_from_power at 1000 MWe net (REBCO, D-T, H=1.0); see
+# examples/tokamak_1gwe_default.py.
+R0: 6.041        # Major radius R0
+plasma_t: 2.014      # Minor radius a (aspect ratio A = R0/a = 3.0)
+elon: 1.85           # Elongation kappa (conventional tokamak)
+blanket_t: 0.80      # Blanket thickness
+ht_shield_t: 0.20    # High-temperature shield
+structure_t: 0.20    # Primary structure
+vessel_t: 0.20       # Vacuum vessel
+vac_op_pressure_pa: 3.0  # Divertor plenum pressure [Pa]; high-recycling region
+                         # pumps at high pressure -> modest speed needed
+
+# Construction
+construction_time_yr: 6.0  # Years
+
+# Plasma parameters for radiation calculation
+n_e: 1.1841e+20     # Electron density [m^-3]
+T_e: 16.49          # Electron temperature [keV]
+Z_eff: 1.5          # Effective charge
+plasma_volume: 894.4 # Plasma volume [m^3]
+radiation_peaking_factor: 1.0   # Uniform profile, no emission-measure correction
+B: 10.0             # On-axis toroidal field [T] (b_center derived from this)
+
+# Impurity model
+wall_material: W       # Wall material: W, C, Be, Mo, SiC, Li
+T_edge: 0.05           # Edge ion temperature at wall [keV] (50 eV, detached divertor)
+tau_ratio: 3.0         # Impurity confinement time / energy confinement time
+seeded_impurities: {}  # Deliberate impurities, e.g. {Ar: 0.002}
+R_w: 0.6               # Wall reflectivity for synchrotron (metallic walls 0.6-0.8)
+
+# Disruption model (active when use_0d_model=true)
+# Literature-grounded bases; see docs/physics/disruption_severity.md
+disruption_rate_base: 1.0   # Baseline disruptions/FPY far from limits (JET/ITER surveys; range 0.3-5)
+disruption_steepness: 12.0  # Exponential steepness (DIII-D q95 / JET density-limit slopes; range 8-20)
+disruption_damage: 0.01     # Fraction of component life per disruption (mitigated population; range 0.002-0.05)
+disruption_downtime: 72.0   # Hours of downtime per disruption (distribution-weighted; range 12-720)
+
+# 0D plasma model (tokamak only)
+use_0d_model: false  # Enable 0D plasma physics model
+q95: 3.5             # Safety factor at 95% flux surface
+f_GW: 0.85           # Greenwald density fraction
+M_ion: 2.5           # Average ion mass [AMU]
+lambda_q: 0.002      # SOL power width at midplane [m]
+
+# Fuel burn fraction defaults (physics.py ash_neutron_split)
+burn_fraction: 0.05      # Single-pass burn fraction (MFE-class)
+fuel_recovery: 0.99         # Fraction of unburned fuel recovered and recycled (NOAK)
+dd_f_T: 0.969
+dd_f_He3: 0.689
+dhe3_dd_frac: 0.131
+dhe3_f_T: 0.5
+pb11_f_alpha_n: 0.0
+pb11_f_p_n: 0.0
+T_i_over_T_e: 1.0     # Ion-to-electron temperature ratio (hot-ion mode > 1; reactivity, W_th, beta)
+dhe3_fuel_ratio: 1.0  # D-He3 mix n_He3/n_D (quasineutrality dilution; 1.0 = 50:50)
+pb11_fuel_ratio: 0.15 # p-B11 mix n_B/n_p (lean boron; to be calibrated)
+enforce_plasma_limits: true # Inverse mode: error when the implied operating point breaks a stability limit
+
+# Blanket configuration
+blanket_form: liquid_metal
+blanket_fill: pbli
+
+# Power-to-geometry sizing (active when size_from_power=true). When enabled,
+# R0/plasma_t/B/b_center become solved outputs and must not be pinned.
+size_from_power: false   # Solve R0 from net_electric_mw instead of using R0
+optimize_lcoe: false     # Wrap sizing with an outer LCOE minimization over f_GW
+aspect_ratio: 3.0        # A = R0 / a (conventional ~3, spherical ~1.7)
+beta_N_max: 3.5          # Troyon normalized-beta limit (binding constraint)
+H_factor: 1.0            # Assumed confinement quality (IPB98y2 multiplier)
+R0_min: 1.0              # Lower bound for the R0 search [m]
+R0_max: 12.0             # Upper bound for the R0 search [m]
+T_min: 5.0               # Lower bound for the operating-temperature search [keV]
+T_max: 60.0              # Upper bound for the operating-temperature search [keV]
+f_GW_min: 0.30           # Lower bound for the LCOE-optimizer f_GW search
+f_GW_max: 1.00           # Upper bound for the LCOE-optimizer f_GW search
+
+# Aneutronic first-wall hardware class (read only when blanket_form is none,
+# i.e. p-B11/D-He3 fuel normalization): panel = actively-cooled W/steel wall
+# (<= 2 MW/m^2 steady), hhf = divertor-grade monoblock wall (<= 10 MW/m^2),
+# beam_dump = bare-CuCrZr beam-dump wall (<= 20 MW/m^2 through-wall).
+# See costing_constants.yaml fw_unit_cost / fw_class_q_limit.
+fw_class: panel

@@ -1,0 +1,493 @@
+# Default CostingConstants. Per-constant provenance is in the comments below
+# and docs/account_justification/; values stand on vendor/procurement,
+# ARIES/ITER, Gen-IV EMWG, and primary-literature sources.
+
+# Shared reference: plant-total net electric power (1 GWe) at which the
+# net-electric-scaling coefficients are calibrated (CAS10 land, CAS22
+# plant-wide, CAS40, CAS50 startup/decom, CAS70 O&M).
+ref_net_power_mwe: 1000.0   # MWe
+# Shared reference: gross electric power of the reference plant (net plus
+# recirculating). Used by the gross-electric (p_et) accounts: CAS21 buildings,
+# CAS22 structure/vessel/power-supplies/remote-handling.
+ref_gross_power_mwe: 1100.0 # MWe gross
+# Shared reference: thermal power of the reference plant. The primary coolant
+# account (CAS22 C220201) is priced consistent with the primary coolant system
+# of a 1 GWe PWR, a 3000 MWt plant; a coolant loop is sized by the heat it
+# moves, not the electricity sold, so the coefficient is on a thermal basis.
+ref_thermal_power_mwt: 3000.0  # MWt
+
+# CAS10 (bureaucracy: licensing, permits, studies)
+site_permits: 3.0           # M$
+plant_studies_foak: 20.0    # M$
+plant_studies_noak: 4.0     # M$
+plant_permits: 2.0          # M$
+plant_reports: 1.0          # M$
+other_precon: 1.0           # M$
+land_intensity: 0.25        # acres/MWe at ref_net_power (CFS ARC: 100 acres / 400 MWe)
+land_cost: 10000.0          # $/acre (industrial-zoned US average)
+licensing_cost_dt: 5.0      # M$
+licensing_cost_dd: 3.0
+licensing_cost_dhe3: 1.0
+licensing_cost_pb11: 0.1
+licensing_time_dt: 2.0      # years — Part 30, 1-2yr range (DI-015)
+licensing_time_dd: 1.5      # 6-18 months (DI-015)
+licensing_time_dhe3: 0.75   # 6-12 months (DI-016)
+licensing_time_pb11: 0.0    # no NRC jurisdiction (DI-016)
+
+# CAS22 — Reactor Plant Equipment
+# Account structure: pyFECONs costing/calculations/cas22/ (Gen-IV EMWG CAS)
+# 220101: First Wall + Blanket — volume-based unit costs (M$/m³)
+# STRUCTURE ONLY: RAFM steel + W first-wall armor + fabrication. The breeder
+# and neutron-multiplier fill inventory is priced separately in CAS27, so it
+# must not be baked in here (see cas27_fill_materials below).
+# DT 0.35 = structure-only steel+W mass build-up (~1300 t steel x ~$130/kg fab
+# + ~33 t W x $400/kg over the ~640 m^3 reference blanket); brackets the
+# DD structure cost (0.30) with a modest W-armor/tritium-barrier premium.
+# See CAS22_reactor_components.md.
+blanket_unit_cost_dt: 0.35   # Breeding-blanket structure (fill in CAS27)
+blanket_unit_cost_dd: 0.30   # Energy capture, no breeding
+blanket_unit_cost_dhe3: 0.08 # Minimal X-ray + ~5% neutron
+blanket_unit_cost_pb11: 0.05 # Minimal X-ray only
+# Li2O solid-breeder structure base, applied in C220101 when blanket_fill=li2o
+# (decouples the breeding-blanket structure cost from the fuel key, e.g. for the
+# levitated dipole). STRUCTURE ONLY, same steel+W basis as DT (0.35); the
+# solid_breeder structure_factor (1.2) adds the pebble-canister premium on top,
+# matching be_ceramic/ceramic_only. The Li2O fill itself is priced in CAS27.
+blanket_unit_cost_li2o: 0.35
+
+# 220102: Shield — volume-based unit cost (M$/m³)
+shield_unit_cost: 0.74       # DT reference, apply fuel scale factor
+
+# 220103-220108: Reactor components
+structure_unit_cost: 0.15    # M$/m³ (volume-based)
+# 220103 resistive (copper) coil mass build-up. SC coils keep the $/kAm path.
+coil_cu_current_density_a_mm2: 5.0   # water-cooled copper current density
+coil_cu_price_per_kg: 11.0           # copper conductor $/kg (LME 2026 class)
+coil_cu_fab_markup: 3.5              # winding, insulation, cooling, jointing, test
+coil_struct_fraction: 0.6            # steel support mass / copper mass
+coil_steel_price_per_kg: 6.0         # fabricated structural steel $/kg
+coil_steel_fab_markup: 3.0           # coil-case / inter-coil support fabrication
+# 220103 SC conductor (tape) cost per kA-m by coil material [$/kA-m]; the
+# active material's value enters C220103 and the autodiff sensitivity.
+conductor_cost_rebco: 50.0           # REBCO HTS tape (aggressive NOAK target)
+conductor_cost_nb3sn: 7.0            # Nb3Sn (ITER conductor, mature)
+conductor_cost_nbti: 7.0             # NbTi (LHC heritage)
+conductor_cost_copper: 1.0           # copper $/kA-m (resistive coils use the mass build-up above)
+# 220103 SC coil manufacturing markup (conductor -> installed magnet system),
+# keyed by concept. Applied on the $/kAm path; copper concepts use the mass
+# build-up markups above instead. tokamak 3.0: derived from the ARC magnet
+# BOM (Sorbom 2015 Table 11: 2.6e6 kA-m tape at ARC's own $40-80/kA-m band,
+# 4,350 t 316LN case steel at the ITER-FDR qualified-magnet-structure rate
+# of about $50/kg 2025, Cu former, tension ring) giving BOM/conductor = 2.9,
+# closed to 3.0 by FDR-class winding/insulation/quench-protection content.
+# At the SPARC-class reference (B=12 T, R0=3.0 m, r_coil=2.95 m) the coil
+# system lands at $500M under the bilinear total_kAm = G*B*R0*r_coil model.
+# stellarator 5.7 = 1.9x the tokamak value, the NCSX modular-coil production
+# cost overrun (90%), the documented penalty for non-planar 3D coil
+# fabrication; its longer winding path is handled separately by
+# path_factor=2. mirror: two-class bore-resolved
+# model (central bore r_bore_central = vessel_or + coil_standoff, plug bore
+# r_bore_plug = plasma_t/sqrt(R_m) + plug_standoff); each class carries its
+# own sourced markup from the ITER FDR magnet cost breakdown (Huguet, IAEA
+# CSP-8/C 2001, Fig. 4; total 1,800 kIUA): the central-cell solenoids take
+# the PF-coil class ratio (class total 17.3% / conductor 11.4% = 1.52, large
+# circular planar coils), the plug coils take the CS class ratio (12.6% /
+# 6.95% = 1.81, high-field compact solenoid) via mirror_plug_coil_markup
+# below. See docs/account_justification/CAS22_reactor_components.md.
+coil_markup:
+  tokamak: 3.0
+  stellarator: 5.7
+  mirror: 1.52
+  steady_frc: 2.0
+  pulsed_frc: 1.5
+  theta_pinch: 1.5
+  orbitron: 1.5
+  polywell: 2.0
+  dipole: 3.0
+# Mirror end-plug coil markup (CS class, ITER FDR Fig. 4: 12.6%/6.95% = 1.81);
+# the coil_markup.mirror entry above prices the central-cell class only.
+mirror_plug_coil_markup: 1.81
+# 220101 aneutronic first wall (blanket_form none): the plasma-facing wall is
+# real surface hardware even with no blanket behind it, priced as
+# firstwall_area x fw_unit_cost[fw_class]. Two discrete hardware classes
+# (concept YAMLs default fw_class: panel; a design that runs a higher
+# wall flux must buy fw_class: hhf or beam_dump explicitly):
+#   panel: actively-cooled W/steel panel wall. Anchor: ITER first-wall panel
+#     procurement, about 600 m^2 at order EUR 300-400M FOAK (about $0.6M/m^2);
+#     NOAK 0.35 from panel-count repetition. Qualified to about 2 MW/m^2
+#     steady state (ITER normal-heat-flux panel class).
+#   hhf: divertor-grade monoblock/hypervapotron wall. Anchor: ITER divertor
+#     procurement, about 150-200 m^2 of PFUs at order EUR 500-700M FOAK
+#     (about $3-3.5M/m^2); NOAK 2.5. Qualified to 10 MW/m^2 steady state
+#     (Pitts et al. 2019, Nucl. Mater. Energy 20, 100696).
+# See docs/account_justification/CAS22_reactor_components.md.
+#   beam_dump: bare-CuCrZr swirl-tube/hypervapotron panel wall (ITER NBI
+#     calorimeter/residual-ion-dump class), rated 20 MW/m^2 through-wall for
+#     hour-class pulses (Hemsworth et al. 2017; MAST-U hypervapotron test
+#     record 20 MW/m^2). No public procurement value exists (F4E discloses
+#     supplier and scope, not award value), so the unit cost is a mass
+#     build-up: about 0.9 t/m^2 of fabricated CuCrZr (MITICA ERID 14 t /
+#     15.3 m^2) at qualified-copper rates gives 0.3-0.5 M$/m^2, doubled for
+#     manifolds/integration/QA and stated conservatively at 1.0. This is a
+#     NOAK engineering judgment, same evidence class as the capacitor $/J
+#     NOAK target, not a procurement anchor like panel/hhf.
+fw_unit_cost:
+  panel: 0.35   # M$/m^2 (NOAK)
+  hhf: 2.5      # M$/m^2 (NOAK)
+  beam_dump: 1.0  # M$/m^2 (NOAK, mass build-up; see note above)
+fw_class_q_limit:
+  panel: 2.0    # MW/m^2 steady-state qualification limit
+  hhf: 10.0     # MW/m^2 steady-state qualification limit
+  beam_dump: 20.0  # MW/m^2 through-wall design rating (hour-class pulses)
+vessel_unit_cost: 0.72       # M$/m³ vessel shell (volume-based)
+# 220106 pumping: gas-load-driven. S_req = Q_gas / P_op;
+# cost = pump_unit_cost[pump_basis[concept]] * S_req. Two technology bases:
+#   discrete: valved, housed, ducted cryo/turbopumps behind ports (closed
+#     toroidal machines, and pulsed chambers whose walls face target debris).
+#     $15/(L/s) NOAK; ITER's tritium-rated FOAK units run about $50/(L/s)
+#     (F4E, 8 units EUR 19M, 50 m^3/s class each).
+#   cryopanel: bare cryopanel arrays lining an exhaust tank on open-geometry
+#     machines, where speed scales with nearly-free wall area. Demonstrated
+#     at 1,100 m^2 on MFTF-B. $2.5/(L/s) NOAK, the center of four independent
+#     costed designs escalated to 2025: Hoffman UCID-17560 (1977) about
+#     $0.7/(L/s); WITAMIR-I UWFDM-400 (1980) about $1.5; MARS UCRL-53480
+#     (1984, tenth-of-a-kind) about $2; TASKA KfK-3311 (1982) about $3.5.
+#     Set above the cluster midpoint for the He-sorption share (noble-gas
+#     ash needs charcoal sorption panels with scheduled regeneration; see
+#     CAS220106_vacuum_pumping.md).
+pump_basis:
+  tokamak: discrete
+  stellarator: discrete
+  mirror: cryopanel
+  steady_frc: cryopanel
+  dipole: cryopanel
+  polywell: cryopanel
+  orbitron: cryopanel
+  # Pulsed FRC (Helion-class) exhausts along open field lines to remote end
+  # divertor chambers (Helion patents US20170011811A1 / EP3103119B1: lost
+  # plasma "is conducted far away from the burn region to a remote chamber"),
+  # the same pump-on-tank-wall geometry as the steady mirror/FRC.
+  pulsed_frc: cryopanel
+  # The remaining pulsed concepts are genuinely enclosed chambers: buffer-gas
+  # or liquid-wall IFE vessels at Torr-class fill pressures (Sombrero 0.5
+  # Torr Xe; LIFE ~1e16 cm^-3 Xe, turbo-pumped), Z-IFE/MagLIF chambers at
+  # 10-20 Torr with condensable-flibe clearing and unresolved rep-rate
+  # pumping (SAND2006-7148), RTPR's radially-flushed toroidal modules on
+  # mechanical Roots blowers (LA-5336: 704 itemized pumps, 12.3 MWe), and
+  # MTF/DPF pre-filled vessels. Discrete/ducted pump economics apply.
+  laser_ife: discrete
+  zpinch: discrete
+  heavy_ion: discrete
+  mag_target: discrete
+  plasma_jet: discrete
+  maglif: discrete
+  theta_pinch: discrete
+  dense_plasma_focus: discrete
+  staged_zpinch: discrete
+pump_unit_cost_discrete: 0.015   # M$ per (m³/s) installed speed (= $15/(L/s))
+pump_unit_cost_cryopanel: 0.0025  # M$ per (m³/s) installed speed (= $2.5/(L/s))
+# See docs/account_justification/CAS220106_vacuum_pumping.md
+pump_nbi_gas_amplification: 1.0  # gas particles pumped per NBI beam particle (C-2W cal.)
+pump_gas_temp_k: 300.0       # pumped-gas temperature [K] for Q = N*kT
+# Pumped-gas species accounting, per fuel. Pumps remove GAS-PHASE particles:
+# hydrogenic atoms recombine to diatomic molecules before reaching the pump
+# (2 atoms -> 1 molecule), noble-gas ash pumps as atoms, and condensable
+# species never reach the pump at all (unburned boron is a refractory solid
+# that plates onto end-tank/collector liners and is handled as a solids
+# loop, not installed pumping speed).
+#   pump_gas_mol_per_pair: gas-phase particles reaching the pump per unburned
+#     consumed-ion-pair equivalent (multiplies (1-bf)/bf):
+#     DT   1.0  (D + T -> one hydrogenic molecule)
+#     DD   1.0  (2 D -> one D2)
+#     DHe3 1.5  (D -> 0.5 D2; He3 pumps as an atom)
+#     PB11 0.5  (p -> 0.5 H2; B condenses, zero gas load)
+#   pump_ash_gas_per_reaction: gas-phase ash particles per fusion reaction:
+#     DT   1.0  (one He4)
+#     DD   0.75 (branch-averaged: T+p branch gives 0.5 H2; He3+n branch gives
+#                one He3 atom)
+#     DHe3 1.5  (one He4 + one proton -> 0.5 H2)
+#     PB11 3.0  (three He4)
+pump_gas_mol_per_pair:
+  dt: 1.0
+  dd: 1.0
+  dhe3: 1.5
+  pb11: 0.5
+pump_ash_gas_per_reaction:
+  dt: 1.0
+  dd: 0.75
+  dhe3: 1.5
+  pb11: 3.0
+nbi_beam_energy_kev: 120.0   # reference reactor NBI energy [keV]; gas load ~ 1/E_b
+vac_op_pressure_pa: 1.0      # global default plenum pressure [Pa]; override per concept
+e_fus_mev_dt: 17.6           # fusion energy per reaction [MeV], fueling-throughput term
+e_fus_mev_dd: 3.65           # branch-averaged
+e_fus_mev_dhe3: 18.3
+e_fus_mev_pb11: 8.7
+power_supplies_base: 80.0    # M$ at 1 GWe (power-scaled)
+divertor_base: 60.0          # M$ at 1 GWth (power-scaled)
+# IFE/MIF target-factory capital (CAS22.01.08) is per-concept: target_factory_capex
+# in each pulsed YAML (capsule factory vs liner shop). See CAS80_target_consumables.md.
+
+# Heating/current-drive unit capital by method (M$/MW delivered, C220104).
+# NBI and ECRH stand on procurement-band anchors; ICRF and LHCD are NOAK
+# estimates from private communication (transmitter-class RF hardware, no
+# beamline and no superconducting content). The two RF values are one ruling:
+# a revision that moves one must move the other.
+# See docs/account_justification/CAS22_reactor_components.md.
+heating_nbi_per_mw: 7.5      # Neutral Beam Injection
+heating_icrf_per_mw: 1.0     # Ion Cyclotron Resonance (NOAK estimate)
+heating_ecrh_per_mw: 5.3     # Electron Cyclotron Resonance Heating (gyrotrons)
+heating_lhcd_per_mw: 1.0     # Lower Hybrid Current Drive (NOAK estimate)
+
+# Heating source efficiency by method (wall-plug -> delivered). Combined with
+# per-concept eta_couple (concept YAML) as eta_pin = eta_source x eta_couple.
+eta_source_nbi: 0.60         # negative-ion NBI source (OSTI 2441289 / ITER)
+eta_source_icrf: 0.70        # RF tetrode transmitter (ITER ICRF ~70%)
+eta_source_ecrh: 0.50        # gyrotron wall-plug
+eta_source_lhcd: 0.50        # klystron wall-plug
+
+# C220109: DEC add-on for linear devices (M$ at 400 MWe DEC electric output)
+# Source: docs/account_justification/CAS220109_direct_energy_converter.md
+dec_base: 125.0              # Total DEC add-on cost at P_DEE_REF
+dec_grid_cost: 12.0          # Replaceable grid/collector modules at P_DEE_REF
+
+# DEC grid lifetime (FPY) — HIGH UNCERTAINTY, no reactor-scale data.
+# Conservative estimates. Sensitivity range: 0.5x to 3x.
+dec_grid_lifetime_dt: 2.0    # Sputtering + 14.1 MeV neutron damage
+dec_grid_lifetime_dd: 3.0    # Sputtering + 2.45 MeV neutron damage
+dec_grid_lifetime_dhe3: 4.0  # 14.7 MeV proton sputtering + He blistering
+dec_grid_lifetime_pb11: 3.0  # 2.9 MeV alpha sputtering + severe He blistering
+
+# 220110: Remote Handling & Maintenance Equipment (M$ at 1 GWe reference, tokamak)
+# See docs/account_justification/CAS220110_remote_handling.md
+# DT: Full RH suite (in-vessel transporter, divertor handler, cask transfer,
+#   hot cell robotics, in-pipe welding, rad-hardened actuators).
+# DD: Same scope, reduced rad-hardening tier (2.45 MeV vs 14.1 MeV).
+# DHe3: Still needs RH (activation exceeds occupational limits), lighter duty.
+# pB11: No rad-hardened robotics. Conventional maintenance equipment
+#   (cranes, platforms, vessel access tooling). Cost is non-trivial due to
+#   vacuum vessel access constraints, heavy components, confined-space work.
+# Base costs calibrated to toroidal (tokamak/stellarator) geometry;
+# linear concepts (mirror, FRC) apply concept_rh_scale < 1.0.
+remote_handling_dt_base: 150.0
+remote_handling_dd_base: 100.0
+remote_handling_dhe3_base: 30.0
+remote_handling_pb11_base: 20.0
+
+# 220111: Installation labor
+installation_frac: 0.14         # Fraction of reactor subtotal
+multi_unit_labor_factor: 0.92   # Each module beyond unit 1 costs 92% of unit 1 labor (8% co-location discount, fission empirical 5-15%)
+
+# Fixed core component lifetime (FPY — full power years between replacements)
+# Used by the IFE/MIF (non-steady-state) families only; steady-state MFE
+# concepts derive core lifetime from the fluence limits below (Phi_max / q_n).
+# Source: 20260208-fusion-reactor-subsystems-by-fuel-type.md
+core_lifetime_dt: 5.0     # 5-10 FPY, ~20 dpa/yr
+core_lifetime_dd: 10.0    # 10-15 FPY, ~7 dpa/yr
+core_lifetime_dhe3: 30.0  # 30+ FPY, ~1 dpa/yr
+core_lifetime_pb11: 50.0  # 50+ FPY, ~0.1 dpa/yr
+
+# First-wall/blanket neutron fluence limits (MW yr/m^2). Steady-state MFE core
+# lifetime = Phi_max / q_n, clamped to plant life. DT anchored to ARIES FS
+# 200 dpa = 18 MW yr/m^2; ladder 1:2:6:10 follows spectrum hardness + old FPY.
+# Source: docs/physics/wall_limits_and_fluence.md
+fluence_limit_dt: 18.0     # ARIES FS 200 dpa = 18 MW yr/m^2
+fluence_limit_dd: 36.0     # 2x DT (softer 2.45 MeV spectrum)
+fluence_limit_dhe3: 108.0  # 6x DT (small D-D side-channel neutrons)
+fluence_limit_pb11: 180.0  # 10x DT (aneutronic; surface cap governs)
+
+# CAS22 sub-accounts that need periodic replacement
+# Default: blanket/FW + divertor. Extend to "C220103" for thin-shield designs.
+replaceable_accounts:
+  - C220101
+  - C220108
+
+# 220500: Fuel Handling (M$ at 1 GWe reference)
+fuel_handling_dt_base: 120.0   # Full tritium processing + containment
+fuel_handling_dd_base: 60.0    # Small-scale tritium + deuterium
+fuel_handling_dhe3_base: 40.0  # He-3 handling
+fuel_handling_pb11_base: 15.0  # Boron powder injection
+
+# CAS21 building costs — M$ at 1 GWe reference (~1.15 GW gross), per fuel type
+# From-scratch derivation: industrial benchmarks + fuel-specific scoping.
+# See docs/account_justification/CAS21_buildings.md
+# Each building has its own scaling basis (see "scales" key).
+# Totals: DT=$502/kW, DD=$446/kW, DHe3=$339/kW, pB11=$308/kW
+building_costs:
+  # --- Fuel-dependent, ~fixed (site footprint) ---
+  site_improvements:  {dt: 85, dd: 81, dhe3: 75, pb11: 69, scales: fixed}
+  # --- Fuel-dependent, scales with P_fus ---
+  reactor_building:   {dt: 138, dd: 127, dhe3: 98, pb11: 81, scales: p_fus}
+  hot_cell:           {dt: 104, dd: 78,  dhe3: 23, pb11: 0,  scales: p_fus}
+  reactor_auxiliaries: {dt: 29, dd: 25,  dhe3: 21, pb11: 17, scales: p_fus}
+  # --- Fuel-dependent, ~fixed ---
+  fuel_storage:       {dt: 9,   dd: 7,   dhe3: 3,  pb11: 1,  scales: fixed}
+  control_room:       {dt: 14,  dd: 13,  dhe3: 12, pb11: 12, scales: fixed}
+  security:           {dt: 3.5, dd: 3.5, dhe3: 2.3, pb11: 2.3, scales: fixed}
+  ventilation_hvac:   {dt: 17,  dd: 15,  dhe3: 6,  pb11: 3.5, scales: p_fus}
+  administration:     {dt: 9,   dd: 8,   dhe3: 6,  pb11: 5,  scales: staff}
+  maintenance:        {dt: 17,  dd: 16,  dhe3: 15, pb11: 14, scales: fixed}
+  site_services:      {dt: 5,   dd: 5,   dhe3: 3.5, pb11: 3.5, scales: fixed}
+  # --- Fuel-independent ---
+  turbine_building:   {all: 58, scales: p_the}
+  heat_exchanger:     {all: 17, scales: p_th}
+  power_supply:       {all: 17, scales: p_et}
+  onsite_ac:          {all: 12, scales: p_et}
+  cryogenics:         {all: 14, scales: fixed}
+  service_water:      {all: 9,  scales: p_th}
+  assembly_hall:      {all: 21, scales: fixed}
+
+# CAS27 — Special materials: initial blanket-fill inventory.
+# Volume-based mass build-up, keyed on blanket_fill (NOT power-scaled): an
+# inventory is set by blanket volume, not net electric power.
+#   CAS27 = blanket_vol[m3] x vol_frac x density[kg/m3] x price[$/kg] / 1e6
+# vol_frac is the fraction of the blanket region occupied by that material
+# (liquid fill fraction for liquids; breeder/multiplier-zone x pebble-packing
+# ~0.25 for solid pebble beds). See docs/account_justification/CAS27_special_materials.md
+cas27_fill_materials:
+  # liquid breeders/coolants
+  pbli:         {density: 9400, vol_frac: 0.50, price: 5.0}    # Pb-17Li (99.3% Pb @ ~$3/kg) + enriched Li-6 premium -> ~$5/kg effective
+  li:           {density: 490,  vol_frac: 0.80, price: 200.0}  # liquid Li, enriched Li-6 ($80 natural - $1000 high-enrichment; 200 mid)
+  flibe:        {density: 1940, vol_frac: 0.80, price: 150.0}  # 2LiF-BeF2; Be-dominated (Araiinejad & Shirvan 2025 NOAK ~$154/kg)
+  # solid pebble beds (vol_frac = bed fraction x ~0.63 packing)
+  be_ceramic:   {density: 1850, vol_frac: 0.25, price: 700.0}  # HCPB Be multiplier (dominant cost); Li-ceramic breeder folded in
+  ceramic_only: {density: 2400, vol_frac: 0.25, price: 150.0}  # Li4SiO4/Li2TiO3 breeder pebbles, no Be
+  li2o:         {density: 2013, vol_frac: 0.25, price: 150.0}  # Li2O ceramic
+  # low-Z energy-capture moderator (no breeder)
+  water:        {density: 1000, vol_frac: 0.50, price: 0.01}   # light water: excellent moderator, ~$10/t treated -> negligible inventory (D-D)
+  none:         {density: 0,    vol_frac: 0.0,  price: 0.0}    # aneutronic / no breeder
+
+# CAS23-26 — BOP equipment (M$/MW gross electric, 2025 USD)
+# turbine_per_mw and heat_rej_per_mw are now set by PowerCycle preset
+# in POWER_CYCLE_DEFAULTS (see defaults.py). CAS24/25 remain here:
+# Source: ARIES/NETL calibration (2019 base, CPI-escalated to 2025 USD)
+# See docs/account_justification/CAS23_26_balance_of_plant.md
+electric_per_mw: 0.08640    # switchyard, transformers, cabling
+misc_per_mw: 0.05259        # fire protection, compressed air, HVAC
+
+# CAS28 — Digital twin (M$, fixed). Software-dominated; does not scale with plant size.
+# Source: DOE ARPA-E GEMINA per-project reactor digital-twin budgets
+# (U. Michigan scalable reactor digital twin $5.2M; $2-10M industrial plant twins).
+# See docs/account_justification/CAS28_digital_twin.md
+digital_twin: 5.0
+
+# CAS29 — Contingency on direct costs
+# Source: Gen-IV EMWG convention
+# See docs/account_justification/CAS29_contingency.md
+contingency_rate_foak: 0.10
+contingency_rate_noak: 0.0
+
+# CAS30
+indirect_fraction: 0.20           # fraction of CAS20 (total direct cost)
+reference_construction_time: 6.0  # years (scaling baseline)
+
+# CAS40 — Capitalized owner's costs (M$ at 1 GWe reference, 2025 USD)
+# Source: CAS40_capitalized_owners_costs.md — INL methodology on CAS71-73
+# staffing (2023$ base, CPI-escalated to 2025 USD)
+# Power-law scaling: CAS40 = owner_cost(fuel) * (P_net / 1 GWe)^0.5
+owner_cost_dt: 41.2        # 117 staff, full neutron + tritium pre-op training
+owner_cost_dd: 32.8        # 94 staff, reduced tritium scope
+owner_cost_dhe3: 24.3      # 69 staff, light HP program
+owner_cost_pb11: 21.1      # 59 staff, near-industrial, RSO-only
+
+# CAS50 — Capitalized supplementary costs
+# Source: CAS50_supplementary_costs.md — sub-account model
+shipping_frac: 0.015              # fraction of CAS20
+spare_parts_frac_dt: 0.03         # fraction of CAS22-28, activated component spares
+spare_parts_frac_dd: 0.025
+spare_parts_frac_dhe3: 0.015
+spare_parts_frac_pb11: 0.01       # conventional industrial spares only
+tax_frac: 0.01                    # fraction of CAS20, after exemptions
+construction_insurance_frac: 0.015  # fraction of (CAS20+CAS30), builder's risk
+startup_fuel_dt: 40.0             # M$ at 1 GWe — tritium startup inventory
+startup_fuel_dd: 0.1              # M$ at 1 GWe — deuterium
+startup_fuel_dhe3: 10.0           # M$ at 1 GWe — He3
+startup_fuel_pb11: 0.1            # M$ at 1 GWe — H + B11
+decom_provision_dt: 272.0         # M$ at 1 GWe — PV of $600M over 40yr at 2%
+decom_provision_dd: 199.0         # M$ at 1 GWe — PV of $440M
+decom_provision_dhe3: 140.0       # M$ at 1 GWe — PV of $310M
+decom_provision_pb11: 113.0       # M$ at 1 GWe — PV of $250M
+
+# CAS70 — Annual O&M cost (M$/yr at 1 GWe reference, 2025 USD)
+# Source: CAS70_staffing_and_om_costs.md — staffing-based build-up by fuel
+# type (2023$ base, CPI-escalated to 2025 USD)
+# Power-law scaling: annual_om = om_cost(fuel) * (P_net / 1 GWe)^0.5
+om_cost_dt: 54.9       # Full neutron + tritium operational overhead
+om_cost_dd: 41.2       # ~1/3 DT neutron flux, smaller tritium inventory
+om_cost_dhe3: 27.5     # ~5% neutron fraction, minimal tritium
+om_cost_pb11: 25.4     # Aneutronic, no tritium, RSO-only
+
+# CAS80 fuel isotope unit costs ($/kg)
+# u_deuterium: STARFIRE (1980) inflation-adjusted via GDP IPD ratio.
+# Current range: $1,500-3,500/kg (see 20260211-fusion-fuel-isotope-sourcing.md).
+# Fuel cost is <1% of DT LCOE. Parameter ranges for optimism/learning
+# sweeps are a future concern — will need a separate range config for all params.
+u_deuterium: 2175.0          # $/kg
+u_li6: 1000.0                # $/kg, enriched Li-6 (90%) for breeding blanket
+u_he3: 2000000.0             # $/kg, He-3 ($2,000/g — optimistic self-production)
+u_protium: 5.0               # $/kg, commodity H2
+u_b11: 10000.0               # $/kg, FOAK enriched B-11 (no industrial supply)
+u_b11_noak: 75.0             # $/kg, NOAK B-11 (industrial chemical exchange distillation)
+
+# Pulsed inductive DEC — driver cost basis
+c_cap_allin_per_joule: 0.5   # $/J_stored, NOAK all-in (caps+switches+charging+buswork)
+                              # Sensitivity range: 0.5-4.0
+
+# Pulsed inductive DEC — C220109 incremental markups
+markup_switch_bidir: 0.06    # Bidirectional switch premium (frac of driver cost)
+markup_controls: 0.04        # FPGA/energy management upgrade (frac of driver cost)
+# Capital credit for staged (non-reversing) recovery topologies: multiplies
+# the C220109 incremental capital only (delta_cap), never the energy credit,
+# which lives in the power balance. 1.0 = no reduction; unsourced, exposed
+# for studies to sweep. See CAS220109_direct_energy_converter.md.
+dec_staged_recovery_factor: 1.0
+c_inv_per_kw_net: 150.0      # Grid-tie inverter ($/kW_net)
+
+# Pulsed inductive DEC — CAS72 cap replacement
+cap_shot_lifetime: 1.0e+8    # Shots, NOAK baseline. Sensitivity: 1e7-1e9
+
+# CAS22.01.04 laser-IFE driver capital by architecture (M$/MJ, selected by
+# laser_driver_type). DPSSL 205 (existing); KrF 40 (Xcimer/ASPEN-leaning,
+# range 20-200); Nd:Glass 1000 (NIF-class). See CAS22_reactor_components.md.
+driver_laser_per_mj: 205.0
+driver_krf_per_mj: 40.0
+driver_ndglass_per_mj: 1000.0
+
+# CAS72 laser-IFE driver scheduled replacement (per architecture).
+# replace_frac = share of C220104; shot_lifetime = NOAK projection (shots).
+dpssl_diode_replace_frac: 0.50
+dpssl_diode_shot_lifetime: 1.0e+10
+dpssl_crystal_replace_frac: 0.03
+dpssl_crystal_shot_lifetime: 3.0e+9
+dpssl_optics_replace_frac: 0.05
+dpssl_optics_shot_lifetime: 3.0e+8
+krf_foil_replace_frac: 0.04
+krf_foil_shot_lifetime: 3.0e+8
+krf_ebeam_replace_frac: 0.06
+krf_ebeam_shot_lifetime: 3.0e+8
+ndglass_lamp_replace_frac: 0.10
+ndglass_lamp_shot_lifetime: 1.0e+4
+
+# Pulsed radiation fraction defaults (frac of charged-particle energy)
+f_rad_dt: 0.10
+f_rad_dd: 0.08
+f_rad_dhe3: 0.05
+f_rad_pb11: 0.15             # High Z^2 bremsstrahlung
+
+# Steady-state radiation fraction (fraction of P_fus radiated as bremsstrahlung).
+# Used to override compute_p_rad for fuels where bremsstrahlung dominates.
+# p-B11: 83% -- photon fraction at the burn-dominated p-B11 operating point
+# WITH fully efficient alpha channeling (Ochs et al., Phys. Rev. E 106,
+# 055215, Sec. IV.B / Fig. 6, P_L/P_F = 17%). Without channeling the same
+# paper gives about 0.96 -- channeling is doing most of the work here.
+# D-He3: 24% for a 50/50 D/He3 mix at T = 70 keV with relativistic + e-e
+# bremsstrahlung (Bosch-Hale cross sections, Rider 1995 brem corrections).
+# Literature spread: Wesson ~20% at 100 keV, Santarius/Kulcinski ~25%, Rider ~30%.
+# See examples/dhe3_mix_optimization.py for the self-consistent calculation.
+f_rad_fus_pb11: 0.83
+f_rad_fus_dhe3: 0.24
+
+# PdV work fraction for inductive DEC expansion stroke
+# For adiabatic expansion: f_pdv = 1 - (1/r)^(gamma-1), gamma=5/3
+# r=10 -> 0.78, r=20 -> 0.86, r=50 -> 0.91
+f_pdv: 0.80

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "P1",
+    "label": "baseline",
+    "note": "the anchor; also the u=0, c=6 corner",
+    "cas22_mult": 1.0,
+    "changes": {}
+  },
+  {
+    "id": "P2",
+    "label": "reactor capital -> 0",
+    "note": "slope of total capital and CAS20 in u, at c=6",
+    "cas22_mult": 0.0,
+    "changes": {}
+  },
+  {
+    "id": "P3",
+    "label": "construction 2 yr",
+    "note": "slope of total capital in c, and of CAS71 in c, at u=0",
+    "cas22_mult": 1.0,
+    "changes": {
+      "construction_time_yr": 2.0
+    }
+  },
+  {
+    "id": "P4",
+    "label": "reactor -> 0, construction 2 yr",
+    "note": "the fourth corner of the TC(u,c) bilinear",
+    "cas22_mult": 0.0,
+    "changes": {
+      "construction_time_yr": 2.0
+    }
+  },
+  {
+    "id": "P5",
+    "label": "availability 0.95",
+    "note": "slope of CAS72 and CAS80 in availability",
+    "cas22_mult": 1.0,
+    "changes": {
+      "availability": 0.95
+    }
+  },
+  {
+    "id": "P6",
+    "label": "indirect fraction 0.10",
+    "note": "check point for the closed-form dTC/d(indirect_fraction)",
+    "cas22_mult": 1.0,
+    "changes": {
+      "indirect_fraction": 0.1
+    }
+  }
+]
