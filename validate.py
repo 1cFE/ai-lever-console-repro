@@ -114,17 +114,19 @@ def main() -> None:
 def _write_report(rows, lin, worst_p, worst_r) -> None:
     L = ["# Validation — surrogate vs. full costingfe\n",
          "Model: `costingfe` @ `ac2d1a8`, clean worktree. "
-         "Anchor: 1 GWe net D-T tokamak, `size_from_power`, availability 0.85, "
+         "Anchor: approximately 1 GWe net D-T tokamak, `size_from_power`, availability 0.85, "
          "life 30 yr, interest 7%, NOAK, indirect fraction 0.20.\n",
          "\n## Result\n",
          "| case | full model $/MWh | console surrogate | error | refit surrogate | error |",
          "|---|---:|---:|---:|---:|---:|"]
     for r in rows:
         L.append(f"| {r['name']} | {r['model']:.3f} | {r['pub']:.3f} | "
-                 f"{r['err_pub']:+.2f}% | {r['refit']:.3f} | {r['err_ref']:+.2f}% |")
-    L += [f"\nWorst absolute error: **{worst_p:.2f}%** for the shipped console "
-          f"constants, **{worst_r:.2f}%** for this package's refit. Across a "
-          f"432-point sweep of the full five-lever space the worst is 0.030%.\n",
+                 f"{r['err_pub']:+.4f}% | {r['refit']:.3f} | {r['err_ref']:+.4f}% |")
+    L += [f"\nWorst absolute error in these three cases: **{worst_p:.4f}%** for the console "
+          f"constants, **{worst_r:.4f}%** for this package's refit. These "
+          f"sampled checks establish numerical agreement only. "
+          f"Run validate_sweep.py for the documented 432-point grid, "
+          f"with results in sweep_validation.json.\n",
           "\n## Lever positions\n",
           "| case | site | constr | reactor | cf | om |",
           "|---|---:|---:|---:|---:|---:|"]

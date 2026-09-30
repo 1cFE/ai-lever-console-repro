@@ -9,10 +9,10 @@ conversion, taken from `lcoeOf()` in the artifact and reproduced in
 
 | Console lever | Slider units (range, zone breaks) | → surrogate driver | → costingfe input(s) | How it reaches LCOE |
 |---|---|---|---|---|
-| **Site engineering & delivery** | % of CAPEX off the 20% baseline, 0–15, green ≤5, amber ≤10 | `indf = (20 − site)/100` | `indirect_fraction` (a `CostingConstants` float field, passed as a `forward()` kwarg) | `CAS30 = indirect_fraction × CAS20 × (T_constr / 6)`, then CAS60 IDC and the 1.5% construction insurance stack on top |
+| **Site engineering & delivery** | percentage points off the 20% nominal indirect fraction (displayed as % of direct cost), 0–15, green ≤5, amber ≤10 | `indf = (20 − site)/100` | `indirect_fraction` (a `CostingConstants` float field, passed as a `forward()` kwarg) | `CAS30 = indirect_fraction × CAS20 × (T_constr / 6)`, then CAS60 IDC and the 1.5% construction insurance stack on top |
 | **Construction time** | % faster than 6 yr, 0–67, green ≤17, amber ≤33 | `c = 6 × (1 − constr/100)` | `construction_time_yr` (popped from `**overrides` in `forward()`) | Three ways at once: CAS30 scales by `T/6`; CAS60 IDC scales by `f_IDC(T) = ((1+i)^T − 1)/(i·T) − 1`; CAS71 O&M carries a small per-year term |
 | **Reactor capital** | % of CAS22 cut, 0–80, green ≤25, amber ≤40 | `u = reactor/100` | `cost_overrides={"CAS22": base_CAS22 × (1 − u)}` | CAS22 is the largest line in CAS20, so the cut propagates into CAS30, CAS60 and CAS90; CAS72 replacement is proportional to it and falls with it |
-| **Capacity factor** | availability points added to 0.85, 0–12, green ≤5, amber ≤9 | `a = 0.85 + cf/100` | `availability` (a required `forward()` argument) | Raises the MWh denominator; also raises CAS72 (more throughput → more scheduled replacement) and CAS80 (more fuel) |
+| **Capacity factor** | availability points added to 0.85, 0–11.5, green ≤5, amber ≤9 | `a = 0.85 + cf/100` | `availability` (a required `forward()` argument) | Raises the MWh denominator; also raises CAS72 (more throughput → more scheduled replacement) and CAS80 (more fuel) |
 | **O&M** | % of CAS71 cut, 0–55, green ≤20, amber ≤35 | `om = om/100` | `om_cost_dt = 54.9 × (1 − om)` (a `CostingConstants` float field) | `annual_om = om_cost(fuel) × (P_net/1 GWe)^0.5`, levelized into CAS71. Verified exactly linear: halving `om_cost_dt` halves CAS71 |
 
 ## Notes that matter if you re-run this
@@ -36,6 +36,6 @@ conversion, taken from `lcoeOf()` in the artifact and reproduced in
 ## What the console does *not* map to a model input
 
 The console's zone colours (green / amber / red) and the mechanism prose carry
-no arithmetic — they classify how well-evidenced a lever position is, and never
-enter the LCOE. Moving a slider within a zone changes the number; the zone
+no arithmetic — they organize hypothetical levels of change and evidence needs, and never
+enter the LCOE. They are not measured AI savings, probabilities or engineering limits. Moving a slider within a zone changes the number; the zone
 boundary only changes the text and the optimism chip.
