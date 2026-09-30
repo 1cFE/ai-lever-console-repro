@@ -108,9 +108,9 @@
 
 <div class="wrap">
   <header>
-    <p class="eyebrow">1costingFE · 1 GWe D-T tokamak · NOAK</p>
+    <p class="eyebrow">1costingFE · approximately 1 GWe net D-T tokamak · NOAK</p>
     <h1>How Can AI Bend the Fusion Cost Curve?</h1>
-    <p class="sub">The $109/MWh baseline already assumes a cautiously optimistic <em>nth-of-a-kind</em> (NOAK) plant with a 7% WACC and a 30-yr lifespan. This tool asks how much <em>further</em> AI could push each lever from there. Drag one, and the box beneath it explains <em>exactly how</em> AI delivers that reduction — the mechanism shifting as you push: <span style="color:var(--green);font-weight:600">demonstrated</span> → <span style="color:var(--amber);font-weight:600">qualification-gated</span> → <span style="color:var(--red);font-weight:600">breakthrough-gated</span>. Watch the levelized cost move downwards, and read about what each step actually requires.</p>
+    <p class="sub">Explore hypothetical changes to a $109/MWh <em>nth-of-a-kind</em> (NOAK) plant with 7% interest and a 30-year life. The sliders show how assumed cost, schedule and availability changes affect plant-gate electricity cost. The scenario bands organize possible mechanisms and their evidence needs. They are not measured AI savings, probabilities or engineering limits. Computing, integration, qualification and other adoption costs are not included.</p>
   </header>
 
   <div class="grid">
@@ -121,7 +121,7 @@
         <span class="redux num" id="redux"></span>
       </div>
       <div class="chips">
-        <span class="chip" id="optimism"><span class="dot"></span><span id="optimism-txt">Grounded</span></span>
+        <span class="chip" id="optimism"><span class="dot"></span><span id="optimism-txt">Lower-change scenario</span></span>
       </div>
 
       <div class="gauge" id="gauge">
@@ -147,21 +147,23 @@
     <div class="card">
       <div id="levers"></div>
       <div class="controls">
-        <button data-preset="reasonable">Reasonable</button>
-        <button data-preset="optimistic">Optimistic</button>
-        <button data-preset="heroic">Heroic</button>
+        <button data-preset="reasonable">Lower-change preset</button>
+        <button data-preset="optimistic">Larger-change preset</button>
+        <button data-preset="heroic">Deep-change preset</button>
         <button class="ghost" data-preset="reset">Reset</button>
       </div>
       <div class="zonekey">
-        <span><i class="sw" style="background:var(--green)"></i>Demonstrated / near-term</span>
-        <span><i class="sw" style="background:var(--amber)"></i>Qualification-gated stretch</span>
-        <span><i class="sw" style="background:var(--red)"></i>Breakthrough-gated</span>
+        <span><i class="sw" style="background:var(--green)"></i>Lower-change scenario</span>
+        <span><i class="sw" style="background:var(--amber)"></i>Qualification-dependent scenario</span>
+        <span><i class="sw" style="background:var(--red)"></i>Speculative scenario</span>
       </div>
     </div>
   </div>
 
   <footer>
-    Client-side surrogate of the <code>costingfe</code> model, pinned to commit <code>ac2d1a8</code> and fit to a 6-point DOE. It reproduces the full model to <b>within 0.03%</b> across the whole lever range, and exactly at the $108.87/MWh baseline. Anchor: 1 GWe net D-T tokamak, <code>size_from_power</code>, availability 0.85→lever, life 30 yr, interest 7%, NOAK, indirect fraction 0.20, 6-yr build. Boundary: gross LCOE at the busbar, before adoption costs — no transmission, storage, curtailment or capacity revenue. Zone boundaries and mechanisms follow the "Can AI Bend the Fusion Cost Curve?" framework.
+    <p>Surrogate of <code>costingfe</code> at <code>ac2d1a8</code>, using a reconstructed six-point design of experiments. A published 432-point check found a maximum relative difference of about 0.034% from the full model. This checks numerical agreement at sampled points, not the accuracy of plant assumptions or benefits attributable to AI.</p>
+    <p>Boundary: plant-gate LCOE for approximately 1 GWe net output, before AI adoption costs. The model requests 1,000 MWe and solves about 998.6 MWe; the surrogate corrects for that difference. Baseline availability is 85%, life 30 years, interest 7%, indirect fraction 20% and construction six years. Transmission, storage, curtailment and capacity revenue are outside this calculation. The plant is assumed to operate as designed. The scenario inputs and their simultaneous achievement are not validated by this tool.</p>
+    <p><a href="https://github.com/1cFE/ai-lever-console-repro">Source and reproduction instructions</a> · <a href="https://github.com/1cFE/ai-lever-console-repro/blob/main/sweep_validation.json">Sampled validation results</a></p>
   </footer>
 </div>
 
@@ -174,7 +176,7 @@
 // construction is an exact nonlinear factor on top:
 //     overnight(u,c,indf) = A(u) + indf * CAS20(u) * (c/6) * 1.015
 //     TC                  = overnight * (1 + f_IDC(c))
-// That is exact to 0.0000% against the full model over the whole lever range.
+// It matches the model capital calculation to displayed precision at checked points.
 // KCAL corrects the nameplate denominator: size_from_power lands at ~998.6 MWe
 // net, not the 1000 the energy term below assumes.
 const CRF=0.0805864, KCAL=1.0014319, BASE=108.8711;
@@ -188,8 +190,8 @@ function buckets(u,c,a,om,indf){
   const cap=CRF*TCadj(u,c,indf), c71=(70.153+1.4457*(c-2))*(1-om);
   // CAS72 is not continuous: above a capacity factor of 0.969379 one more
   // in-vessel replacement fits into the 30-yr life, a discrete +6.31 M$/yr.
-  // That threshold sits inside this lever's range, so the step is explicit;
-  // a straight line through it is wrong by ~1% of LCOE at the top of the lever.
+  // The slider is capped below that threshold; the step remains as a guard.
+  // A straight-line extension through it would misstate replacement cost.
   const c72=(1-u)*(50.9606+53.944*(a-0.85)+(a>=0.969379?6.3100:0));
   const c80=0.7706+0.9066*(a-0.85);
   const E=8760*1000*a/1e6;
@@ -203,42 +205,43 @@ function lcoeOf(s){
 const r0=v=>Math.round(v);
 
 const LEVERS=[
-  {id:"site",   name:"Site engineering & delivery",unit:"% of CAPEX",max:15,z:[5,10],tag:"indirect fraction (CAS30) · nominally 20% of direct cost"},
+  {id:"site",   name:"Site engineering & delivery",unit:"% of direct cost",max:15,z:[5,10],tag:"nominal indirect fraction · 20% baseline, with construction-time scaling"},
   {id:"constr", name:"Construction time",unit:"% faster",max:67,z:[17,33],tag:"schedule → interest during construction · nominally 6 years"},
   {id:"reactor",name:"Reactor capital",unit:"% cut",max:80,z:[25,40],tag:"CAS22 reactor plant · nominally ~$4.1B/GWe"},
   {id:"cf",     name:"Capacity factor",unit:"+pts",max:11.5,z:[5,9],tag:"availability · nominally 85%"},
   {id:"om",     name:"O&M",unit:"% cut",max:55,z:[20,35],tag:"operations & maintenance · nominally ~$76M/yr (≈9% of LCOE)"},
 ];
 
-// zone-specific mechanism copy; v = current slider value
+// Scenario explanations. v is the displayed value, including the remaining
+// nominal indirect fraction for the site lever. These labels do not change costs.
 const TXT={
  reactor:{
-  green:v=>`<b>Margin recovery + factory yield.</b> FOAK designs price conservatism as mass — extra shield thickness, breeding-blanket margin, divertor heat-flux and magnet-quench headroom. ML trained on FOAK operating and test data shrinks those margins, thinning the nuclear island toward a <b>−${v}%</b> reactor-capital cut. Reinforced by AI process-control / defect-prediction lifting factory yield (demonstrated in additive manufacturing and semiconductors — the strongest transferable claim).`,
-  amber:v=>`<b>Margin recovery stacked with new materials.</b> Past ~25%, design-margin savings run out; a <b>−${v}%</b> cut needs ML-designed radiation-tolerant tungsten/steels and generative crystal-structure search (GNoME, MatterGen) to allow genuinely thinner, cheaper components. Real, but <em>qualification-gated</em> — the alloys must survive fusion-fluence testing before the saving is bankable.`,
-  red:v=>`<b>Breakthrough needed:</b> beyond design optimization and margin recovery, it takes a step-change in the cost basis itself — a superconductor advance that collapses HTS-magnet $/kA·m (the dominant CAS22 line), or a more compact confinement class. AI can accelerate this search across every domain — plasma, wall materials, magnets, whole-system design. But it cannot conjure the result: a <b>−${v}%</b> cut needs a physical breakthrough that still has to be invented, built, and qualified in hardware.`,
+  green:v=>`<b>Design margins and manufacturing yield.</b> This scenario assumes a <b>${v}%</b> reduction in reactor capital. Better predictions, testing and process control could help recover margins or reduce rejected parts. The design must still meet shielding, lifetime and performance requirements. The additional contribution from AI needs to be separated from ordinary NOAK improvement.`,
+  amber:v=>`<b>Component changes requiring qualification.</b> A <b>${v}%</b> reactor-capital reduction could involve revised materials, dimensions or manufacturing processes. Candidate alloys and simulated designs require testing under the intended operating conditions. The band boundary is an analyst choice, not a measured limit on margin recovery.`,
+  red:v=>`<b>Large changes to the cost basis.</b> This scenario assumes a <b>${v}%</b> reactor-capital reduction. New materials, lower-cost magnets or a different design could contribute, but the slider does not establish a feasible engineering route. A changed architecture would also require a new plant estimate rather than a discount to this tokamak.`,
  },
  constr:{
-  green:v=>`<b>AI build-planning — the "quiet win."</b> Generative construction scheduling explores thousands of crew/crane/laydown sequences (ALICE Technologies); ML schedule-risk forecasting trained on historical megaproject schedules (nPlan); computer-vision site tracking against the model (Buildots; Bechtel piloting); and ML weather forecasting (GraphCast-class models) to time weather-sensitive pours and crane lifts around delays. Trims schedule contingency for a <b>−${v}% faster</b> build, lowering interest during construction.`,
-  amber:v=>`<b>Design-pipeline compression reaching the field.</b> A <b>−${v}%</b> schedule needs a design frozen earlier with fewer field reworks, plus AI-optimized modular/factory fabrication sequencing. Plausible, but it depends on the whole engineering pipeline moving — not just the scheduler.`,
-  red:v=>`<b>Breakthrough needed:</b> reaching a <b>−${v}%</b> build takes unprecedented robotic build automation — autonomous welding, placement, and heavy equipment running lights-out, 24/7, at nuclear-construction quality — to break the human, single-shift pace of the site. Even then, concrete cure and the statutory review-and-inspection clock stay hard floors: reform there is industrial and regulatory, not analytical.`,
+  green:v=>`<b>Planning and execution.</b> This scenario shortens construction by <b>${v}%</b>, reducing modeled indirect and financing costs. Scheduling, progress monitoring and earlier issue detection could contribute. A project schedule must establish which activities can move and how much additional benefit AI provides.`,
+  amber:v=>`<b>Changes across the project.</b> A <b>${v}%</b> shorter build could depend on earlier design completion, fewer field changes and modular fabrication as well as planning tools. The result needs a feasible schedule, procurement plan and qualified construction processes.`,
+  red:v=>`<b>Major delivery changes.</b> A <b>${v}%</b> shorter build is a speculative input. Automation, factory production or a different delivery method might help, but this tool does not model the required investment, physical dependencies or approval process.`,
  },
  cf:{
-  green:v=>`<b>Advisory-mode uptime.</b> AI health-monitoring drives condition-based (not fixed-interval) maintenance; disruption prediction feeds advisory setpoints; AI-sequenced remote handling shortens in-vessel campaigns — cutting both downtime and O&M. Lifts capacity factor <b>+${v} pts</b> — all from AI in an advisory seat, with verified deterministic control still in command of the plant.`,
-  amber:v=>`<b>Materials that shorten the outage.</b> Further uptime comes not from the controller but from the dominant downtime driver — scheduled in-vessel replacement. ML-designed, more damage-tolerant plasma-facing materials and faster-swap component designs shorten and space out blanket/divertor campaigns for <b>+${v} pts</b>.`,
-  red:v=>`<b>Breakthrough needed:</b> the last points hit a physical and a grid ceiling at once. <b>+${v} pts</b> (>0.94 capacity factor) needs a first wall/blanket/divertor that barely needs scheduled replacement (a materials breakthrough) and near-disruption-free operation, plus a regulator accepting a learning controller in the safety loop. And even a perfectly <em>available</em> plant gets curtailed when a high-renewables grid is saturated — holding the top few points then takes onsite storage or flexible offtake (hydrogen, heat), an infrastructure fix beyond any plant-side AI.`,
+  green:v=>`<b>Reliability and maintenance.</b> The scenario adds <b>${v} percentage points</b> to modeled availability. Diagnosis, control and replacement planning could reduce lost operating time. The gain needs evidence from a consistent component-life and outage model. AI may advise operators or perform a validated control function; neither role implies this percentage gain.`,
+  amber:v=>`<b>Qualified equipment and outage changes.</b> Adding <b>${v} percentage points</b> could require longer-lived components, faster replacement work or improved operation. The same replacement assumptions must govern cost and downtime. The scenario does not establish their feasibility or allocate the gain to AI.`,
+  red:v=>`<b>High-availability operation.</b> Adding <b>${v} percentage points</b> requires a credible plan for failures, maintenance and replacement. The control system needs validation appropriate to its function. No universal requirement for an online-learning controller or advisory-only AI is assumed. Market curtailment is outside this plant-availability calculation.`,
  },
  om:{
-  green:v=>`<b>Leaner, augmented operations.</b> I&C augmentation and automation shrink the permanent crew; remote monitoring moves roles off-site; condition-based maintenance cuts interventions and parts; and AI-driven maintenance scheduling allows for shared specialist crews and spare parts across a fleet of powerplants, optimizing the complex distribution logistics — together a <b>−${v}%</b> O&M cut. (O&M is ~9% of LCOE — a small lever.)`,
-  amber:v=>`<b>Graded autonomy + fleet operations centers.</b> A <b>−${v}%</b> cut still sits within the regulator-set minimum staffing floor, but getting there needs off-site operating centers serving many units and reduced on-shift staffing — real in aviation and fission-fleet analogs, and dependent on regulatory acceptance of the reduced-staffing model plus demonstrated reliability.`,
-  red:v=>`<b>Breakthrough needed:</b> a licensing-framework change. A <b>−${v}%</b> O&M cut falls below the regulator-set minimum staffing floor; reaching it means accepting largely remote/unstaffed operation — an institutional shift, not an AI capability (and worth only a point or two of LCOE regardless).`,
+  green:v=>`<b>Operating and maintenance work.</b> The scenario reduces modeled O&M by <b>${v}%</b>. Monitoring, diagnosis and work planning could contribute, while shared crews and spares may also save costs without AI. Software, integration and continuing support costs must be included before claiming a net benefit.`,
+  amber:v=>`<b>Changes to service arrangements.</b> A <b>${v}%</b> O&M reduction could involve shared specialist teams, off-site support or revised maintenance. Staffing, fault response, reliability and the applicable approval process need a plant-specific case. This band is not a regulatory staffing threshold.`,
+  red:v=>`<b>Deep operating-cost reductions.</b> A <b>${v}%</b> reduction is a speculative assumption. The required service organization and maintenance workload need to be demonstrated. The model does not establish a minimum staffing level or require an unattended plant, and it excludes the cost of adopting AI tools.`,
  },
  site:{
-  green:v=>{const cut=Math.round((20-v)/20*100);return `<b>AI-managed site adaptation.</b> At NOAK the design is already frozen, so the recurring cost is per-site engineering and project delivery. AI already tightens this: generative site-adaptation fits a standard design to local constraints without violating physical or regulatory limits. In the (mostly civil) engineering design work required for site adaptation, AI plays an assistive role. Near-term AI models still struggle with spatial reasoning. Additionally, LLMs can significantly accelerate the paperwork involved in pre-construction licensing and permitting. Trims the indirect fraction for a <b>−${cut}%</b> cut.`;},
-  amber:v=>`<b>From assistant to author.</b> Cutting the indirect cost fraction to <b>${v}% of CAPEX</b> needs standardized, machine-readable engineering that regulators and QA accept without re-review. The unlock is tools that genuinely reason in 3D and plug natively into CAD/BIM — generative structural and foundation design validated against codes via physics-in-the-loop, with BIM-FEM interoperability closing the design-to-analysis loop, so the heavy civil engineering itself is automated, not just the paperwork. Through demonstrated reliability over long periods, AI tools could even be trusted to circumvent the human design-review bottleneck and streamline the pre-construction phase. A ${v}% indirect fraction is credible, but gated on acceptance of AI-produced engineering and improved spatial reasoning within AI tools.`,
-  red:v=>{const cut=Math.round((20-v)/20*100);return `<b>Breakthrough needed:</b> below ~10% of CAPEX you hit the irreducible floor — human oversight, interface and configuration management, and statutory design review. A <b>−${cut}%</b> cut needs a wholesale change in how nuclear engineering is reviewed and licensed: largely-autonomous engineering accepted with minimal human sign-off. Institutional and regulatory, not an AI tooling gain.`;},
+  green:v=>`<b>Recurring site engineering.</b> The nominal indirect fraction is <b>${v}% of direct cost</b>, a <b>${Number(((20-v)/20*100).toFixed(1))}% reduction</b> from 20%. Design adaptation, documentation and issue checking could help. Savings need comparison with ordinary engineering practice, including the cost of the tools.`,
+  amber:v=>`<b>Integrated engineering workflows.</b> The nominal indirect fraction is <b>${v}% of direct cost</b>, a <b>${Number(((20-v)/20*100).toFixed(1))}% reduction</b> from 20%. More standardized interfaces and automated checks could contribute, subject to demonstrated reliability and the required review. The percentage is a scenario input, not an established AI saving.`,
+  red:v=>`<b>Large indirect-cost changes.</b> The nominal indirect fraction is <b>${v}% of direct cost</b>, a <b>${Number(((20-v)/20*100).toFixed(1))}% reduction</b> from 20%. This requires a credible accounting of engineering, oversight and coordination work. The band boundary is not an irreducible or regulatory cost floor.`,
  },
 };
-const ZLABEL={green:"Demonstrated / near-term",amber:"Qualification-gated stretch",red:"Breakthrough-gated"};
+const ZLABEL={green:"Lower-change scenario",amber:"Qualification-dependent scenario",red:"Speculative scenario"};
 
 const PRESETS={
   reset:      {reactor:0, constr:0,   cf:0,  om:0,  site:0},
@@ -262,14 +265,14 @@ LEVERS.forEach(L=>{
       <div class="zone" style="background:linear-gradient(90deg,var(--green) 0 ${z1}%,var(--amber) ${z1}% ${z2}%,var(--red) ${z2}% 100%);opacity:.28"></div>
       <input type="range" min="0" max="${L.max}" step="0.5" value="0" id="rng-${L.id}" aria-label="${L.name} ${L.unit}">
     </div>
-    <div class="explain" id="exp-${L.id}"><span class="zlabel">Demonstrated / near-term</span><span id="exptxt-${L.id}"></span></div>`;
+    <div class="explain" id="exp-${L.id}"><span class="zlabel">Lower-change scenario</span><span id="exptxt-${L.id}"></span></div>`;
   host.appendChild(el);
   el.querySelector("input").addEventListener("input",e=>{state[L.id]=parseFloat(e.target.value);clearActive();render();});
 });
 
 const scaleMin=10, scaleMax=110, pos=v=>(v-scaleMin)/(scaleMax-scaleMin)*100;
 const gauge=document.getElementById("gauge");
-[{v:20,l:"$20 hard floor"},{v:48,l:"≈$48 AI-optimistic floor"},{v:BASE,l:"$108.9 baseline"}].forEach(r=>{
+[{v:10,l:"$10 target",t:true},{v:BASE,l:"$108.9 baseline"}].forEach(r=>{
   const line=document.createElement("div"); line.className="ref"+(r.t?" target":""); line.style.left=pos(r.v)+"%"; gauge.appendChild(line);
   const lab=document.createElement("div"); lab.className="ref-label"+(r.t?" target":""); lab.textContent=r.l; lab.style.left=pos(r.v)+"%"; gauge.appendChild(lab);
 });
@@ -291,7 +294,7 @@ function render(){
     const el=document.getElementById("lever-"+L.id);
     el.classList.toggle("z-amber",z==="amber"); el.classList.toggle("z-red",z==="red");
     el.querySelector(".zlabel").textContent=ZLABEL[z];
-    document.getElementById("exptxt-"+L.id).innerHTML=TXT[L.id][z](L.id==="site"?r0(20-v):r0(v));
+    document.getElementById("exptxt-"+L.id).innerHTML=TXT[L.id][z](L.id==="site"?20-v:v);
     if(z==="red")worst="red"; else if(z==="amber"&&worst!=="red")worst="amber";
   });
   const {total,b}=lcoeOf(state);
@@ -310,14 +313,14 @@ function render(){
   const reactorZone=zoneOf(LEVERS.find(L=>L.id==="reactor"),state.reactor);
   const oc=document.getElementById("optimism"), ot=document.getElementById("optimism-txt");
   oc.className="chip "+(worst==="red"?"bad":worst==="amber"?"warn":"good");
-  ot.textContent=worst==="red"?"Breakthrough-gated assumptions":worst==="amber"?"Qualification-gated stretch":"Grounded";
+  ot.textContent=worst==="red"?"Speculative scenario":worst==="amber"?"Qualification-dependent scenario":"Lower-change scenario";
   const aha=document.getElementById("aha");
   if(total>=BASE-0.2){
-    aha.innerHTML="<b>Baseline.</b> In this NOAK case, capital is ~84% of LCOE — so reactor capital is the dominant lever. Capacity factor (the LCOE denominator) and construction schedule each pull meaningfully too, though both are bounded; site engineering and O&M move it least. Drag them to see how far each really gets.";
+    aha.innerHTML="<b>Baseline.</b> Capital recovery is about 84% of this modeled NOAK plant's LCOE. The sliders change specific cost, schedule and availability inputs. They do not establish the amount of improvement attributable to AI.";
   }else if(reactorZone==="red"){
-    aha.innerHTML=`This <b>−${redPct.toFixed(0)}%</b> mostly rides on driving reactor capital into the <span style="color:var(--red);font-weight:700">breakthrough-gated</span> zone — a <b>${r0(state.reactor)}% cut</b>, ~${(state.reactor/25).toFixed(1)}× margin recovery's plausible depth. That's the crux: deep cost-down needs a physical breakthrough on the one dominant lever, not analytics on the rest.`;
+    aha.innerHTML=`The modeled cost is <b>${redPct.toFixed(0)}% below baseline</b>, including a <b>${state.reactor}% reactor-capital reduction</b>. That large change requires an engineering and cost basis. Neither the scenario band nor numerical agreement with the full model establishes its feasibility.`;
   }else{
-    aha.innerHTML=`A <b>−${redPct.toFixed(0)}%</b> reduction so far. The supporting levers (schedule, capacity factor, site engineering, O&amp;M) are near their limits — to bend the curve much further, reactor capital has to move into the <span style="color:var(--red);font-weight:700">breakthrough-gated</span> band.`;
+    aha.innerHTML=`The modeled cost is <b>${redPct.toFixed(0)}% below baseline</b> under these combined assumptions. This is a change in plant cost before AI adoption costs, not an estimate of net AI savings. Joint feasibility and gains beyond ordinary maturation remain to be established.`;
   }
 }
 

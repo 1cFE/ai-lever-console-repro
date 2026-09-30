@@ -1,17 +1,17 @@
 # Validation — surrogate vs. full costingfe
 
-Model: `costingfe` @ `ac2d1a8`, clean worktree. Anchor: 1 GWe net D-T tokamak, `size_from_power`, availability 0.85, life 30 yr, interest 7%, NOAK, indirect fraction 0.20.
+Model: `costingfe` @ `ac2d1a8`, clean worktree. Anchor: approximately 1 GWe net D-T tokamak, `size_from_power`, availability 0.85, life 30 yr, interest 7%, NOAK, indirect fraction 0.20.
 
 
 ## Result
 
 | case | full model $/MWh | console surrogate | error | refit surrogate | error |
 |---|---:|---:|---:|---:|---:|
-| baseline | 108.871 | 108.871 | +0.00% | 108.871 | +0.00% |
-| green_mid | 92.015 | 92.013 | -0.00% | 92.013 | -0.00% |
-| amber_mid | 67.737 | 67.740 | +0.00% | 67.740 | +0.00% |
+| baseline | 108.871 | 108.871 | +0.0000% | 108.871 | +0.0000% |
+| green_mid | 92.015 | 92.013 | -0.0019% | 92.013 | -0.0020% |
+| amber_mid | 67.737 | 67.740 | +0.0047% | 67.740 | +0.0046% |
 
-Worst absolute error: **0.00%** for the shipped console constants, **0.00%** for this package's refit. Across a 432-point sweep of the full five-lever space the worst is 0.030%.
+Worst absolute error in these three cases: **0.0047%** for the console constants, **0.0046%** for this package's refit. These sampled checks establish numerical agreement only. Run validate_sweep.py for the documented 432-point grid, with results in sweep_validation.json.
 
 
 ## Lever positions

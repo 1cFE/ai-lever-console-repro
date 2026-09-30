@@ -1,8 +1,10 @@
 # AI Lever Console — reproducibility package
 
-Everything needed to regenerate, refit and check the client-side surrogate
-behind the **AI Lever Console** ("How Can AI Bend the Fusion Cost Curve?",
-artifact `038598b6`).
+Source and numerical checks for the **AI Lever Console**, a hypothetical plant-cost scenario tool.
+
+[Open the console](https://ai.1cf.energy/). You can also download `console.html` and open it directly in a browser. It has no external runtime dependencies.
+
+The colored bands organize assumed changes and possible mechanisms. They are not measurements of AI savings, probabilities or engineering limits. The preset names describe the size of the assumed changes. Their numerical settings are unchanged from the original console.
 
 ## Model version and boundary
 
@@ -16,25 +18,24 @@ artifact `038598b6`).
 | Baseline LCOE | **108.8711 $/MWh** |
 | Overnight / total capital | 7096.73 / 8460.83 M$ |
 
-**Boundary: gross LCOE at the busbar, before adoption costs.** It is
+**Boundary: plant-gate LCOE for approximately 1 GWe net output, before AI adoption costs.** It is
 `(CAS90 + CAS70 + CAS80) / (8760 · P_net · availability)` — capital recovery,
 O&M, scheduled replacement and fuel. It excludes grid interconnection beyond
 the plant fence, transmission, storage, curtailment, carbon or capacity
-revenue, and anything about how the electricity is sold or adopted. Two plants
+revenue, and computing, data preparation, integration, qualification, training and maintenance costs of AI adoption. The chosen inputs do not establish their joint feasibility or the additional contribution from AI beyond ordinary NOAK improvement. Two plants
 with the same number here can have very different delivered costs.
 
 ## Surrogate accuracy
 
-Validated against full `costingfe` at three points (see `validation.md`):
+Compared with full `costingfe` at three points (see `validation.md`):
 
 | case | full model $/MWh | surrogate | error |
 |---|---:|---:|---:|
-| baseline | 108.871 | 108.871 | +0.00% |
-| all levers at green-zone midpoint | 92.015 | 92.013 | −0.00% |
-| all levers at amber-zone midpoint | 67.737 | 67.740 | +0.00% |
+| baseline | 108.871 | 108.871 | +0.0000% |
+| all levers at green-zone midpoint | 92.015 | 92.013 | −0.0019% |
+| all levers at amber-zone midpoint | 67.737 | 67.740 | +0.0047% |
 
-Across a 432-point sweep of the full five-lever space: worst **0.030%**,
-median **0.011%**.
+A reproducible 432-point grid covering all five slider dimensions found a maximum relative difference of **0.03364%** and a median of **0.00912%**. The grid and every comparison are saved in `sweep_validation.json`; run `validate_sweep.py` to regenerate them. These are sampled checks, not a guaranteed error bound over the continuous slider ranges. Numerical agreement with the cost model does not validate the plant assumptions or benefits attributed to AI.
 
 > **These figures are for the rebuilt surrogate.** The version fit on 11 Aug and
 > shipped until now scored 0.58% at the amber midpoint and **1.03%** worst-case,
@@ -59,7 +60,7 @@ Fixed by dropping the interpolation for the model's own identity:
 
 CAS30 is the only account carrying `c` into overnight (plus the construction
 insurance stacked on it), and CAS60 is exactly `f_IDC(c)` on the whole overnight
-cost. This is now **exact to 0.0000%** over the entire lever range, and it folds
+cost. This matches the full-model capital calculation to the displayed precision at checked points, and it folds
 the site lever in natively — the separate `dTC/d(indf)` correction is gone.
 
 **2. CAS72 is not continuous, and the old fit straight-lined through a step.**
@@ -69,11 +70,7 @@ console's capacity-factor lever, which reaches 0.97 — so the top of the lever
 was wrong by ~1% of LCOE, the worst error anywhere in the space. The surrogate
 now carries the step explicitly.
 
-This one is worth reading as physics, not just arithmetic: past ~0.9694 the
-plant buys extra uptime and immediately gives part of it back as an extra
-changeout. It is the console's own red-zone argument — that the last capacity
-points need a first wall that barely needs scheduled replacement — showing up as
-a discontinuity in the cost model.
+This discontinuity comes from the model's discrete replacement schedule. It does not establish a physical availability limit or imply that a particular control technology is required.
 
 **The lever is capped below it.** The capacity-factor slider now stops at
 +11.5 pts (availability 0.965), the largest half-point detent under the
@@ -172,9 +169,11 @@ doe_results.json/.csv       the six runs, full CAS ladder each
 fit_surrogate.py            derives the coefficients, scores them vs. shipped
 surrogate_coefficients.json refit + shipped, side by side
 surrogate.py                line-for-line Python port of the console's JS
-console.html                the published console page, as deployed
+console.html                standalone console page, served from this repository
 validate.py                 the three-point validation
 validation.json             machine-readable validation output
+validate_sweep.py            reproducible 432-point sampled comparison
+sweep_validation.json        grid, model pin, coefficients hash and every comparison
 linearity.py                held-out tests of each fitted form
 linearity.md                their results -- what is exact, what is not
 ```
@@ -201,13 +200,11 @@ corner runs.
 
 P2 and P4 set CAS22 to exactly zero. That is deliberately unphysical — it is a
 slope-identification point, not a plant. The console never evaluates past
-`u = 0.80`, and the surrogate is claimed only over the lever ranges.
+`u = 0.80`. The validation checks specified points inside the lever ranges.
 
 ## How to rerun
 
-`costingfe` is not installed system-wide, and the main checkout is on a
-different branch and **dirty** — running there gives 111.14 $/MWh, not 108.87.
-Pin a clean worktree at `ac2d1a8` first:
+Use a clean checkout of [1costingFE](https://github.com/1cFE/1costingfe) at the pinned commit. Other revisions or local changes can give different results. For an existing clone, create an isolated worktree:
 
 ```bash
 cd /path/to/1costingfe
@@ -224,11 +221,11 @@ uv run --no-project --with numpy --with pydantic --with pyyaml python run_doe.py
 uv run --no-project --with numpy --with pydantic --with pyyaml python fit_surrogate.py
 uv run --no-project --with numpy --with pydantic --with pyyaml python validate.py
 uv run --no-project --with numpy --with pydantic --with pyyaml python linearity.py
+uv run --no-project --with numpy --with pydantic --with pyyaml python validate_sweep.py
 ```
 
 Run the first three in that order: the fit reads `doe_results.json`, and the
-validation reads `surrogate_coefficients.json`. `linearity.py` is independent —
-it runs its own points and depends on nothing but `case.py`.
+validation reads `surrogate_coefficients.json`. `linearity.py` runs its own points using `case.py`. `validate_sweep.py` compares the existing console coefficients against the pinned full model and checks that the model checkout is clean.
 
 Only three runtime dependencies are needed (`numpy`, `pydantic`, `pyyaml`).
 Do **not** add `jax`: the backend auto-selects it if importable and a single
@@ -245,3 +242,9 @@ Expect one harmless `RuntimeWarning: divide by zero` from `physics.py` — it is
 console, replace the constants at the top of its `<script>` with the `refit`
 block and re-derive `KCAL` from the new baseline — but note that the shipped and
 refit coefficients agree to 0.001 $/MWh, so there is no accuracy reason to.
+
+## Hosting and scenario labels
+
+Cloudflare Pages serves the standalone console at [ai.1cf.energy](https://ai.1cf.energy/). Configure the build command as `mkdir -p dist && cp console.html dist/index.html` and the output directory as `dist`. Only the public console HTML is deployed. The source and numerical checks remain in this repository; no article drafts or editorial history are included.
+
+The source and reproduction links are visible in the console footer. The scenario bands retain the original numerical breakpoints, while replacing claims of demonstrated percentage savings and regulatory or physical floors with explicit conditions. The site slider displays the remaining nominal indirect fraction as a percentage of direct cost. Its explanations use that same value without rounding away half points.

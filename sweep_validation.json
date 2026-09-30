@@ -1,0 +1,5238 @@
+{
+  "model_commit": "ac2d1a8d07d0d9cbe5f0ca6e88db2fcbf477c093",
+  "surrogate_sha256": "8ae32a5910b96413b90e3b2692dc0eea05c5c968aa4145e3ae97261c3ef1e929",
+  "scope": "Numerical comparison at sampled points, not an engineering validation or a continuous error bound.",
+  "grid_slider_units": {
+    "site": [
+      0.0,
+      7.5,
+      15.0
+    ],
+    "constr": [
+      0.0,
+      22.333333333333332,
+      44.666666666666664,
+      67.0
+    ],
+    "reactor": [
+      0.0,
+      40.0,
+      80.0
+    ],
+    "cf": [
+      0.0,
+      3.8333333333333335,
+      7.666666666666667,
+      11.5
+    ],
+    "om": [
+      0.0,
+      27.5,
+      55.0
+    ]
+  },
+  "summary": {
+    "point_count": 432,
+    "maximum_absolute_relative_error_percent": 0.03363744229794019,
+    "median_absolute_relative_error_percent": 0.009120029565806709,
+    "maximum_absolute_difference_usd_per_mwh": 0.016753533574927815,
+    "worst_relative_error_point": {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 36.984515246745424,
+      "surrogate_usd_per_mwh": 36.996955891720724,
+      "relative_error_percent": 0.03363744229794019
+    }
+  },
+  "points": [
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 108.87106143869212,
+      "surrogate_usd_per_mwh": 108.8710638817304,
+      "relative_error_percent": 2.243973962201551e-06
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 106.06254071664816,
+      "surrogate_usd_per_mwh": 106.06254300746158,
+      "relative_error_percent": 2.1598703936476227e-06
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 103.2540199946042,
+      "surrogate_usd_per_mwh": 103.25402213319279,
+      "relative_error_percent": 2.071191596009214e-06
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 104.45193006561895,
+      "surrogate_usd_per_mwh": 104.44364526442551,
+      "relative_error_percent": -0.007931687991058478
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 101.76460254546431,
+      "surrogate_usd_per_mwh": 101.75631759861484,
+      "relative_error_percent": -0.00814128551799298
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 99.0772750253097,
+      "surrogate_usd_per_mwh": 99.06898993280417,
+      "relative_error_percent": -0.00836225310336669
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 100.38845738364832,
+      "surrogate_usd_per_mwh": 100.38252387085453,
+      "relative_error_percent": -0.005910552814969439
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 97.81229628968714,
+      "surrogate_usd_per_mwh": 97.80636263726264,
+      "relative_error_percent": -0.006066366550616653
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 95.23613519572595,
+      "surrogate_usd_per_mwh": 95.23020140367075,
+      "relative_error_percent": -0.00623060988668156
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 96.63862552299392,
+      "surrogate_usd_per_mwh": 96.6440477002615,
+      "relative_error_percent": 0.005610776476006052
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 94.16479898026091,
+      "surrogate_usd_per_mwh": 94.17022102344441,
+      "relative_error_percent": 0.005758036168734826
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 91.6909724375279,
+      "surrogate_usd_per_mwh": 91.69639434662734,
+      "relative_error_percent": 0.005913242007693498
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 79.49122007265011,
+      "surrogate_usd_per_mwh": 79.49123819298184,
+      "relative_error_percent": 2.2795387599749972e-05
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 76.68269935060617,
+      "surrogate_usd_per_mwh": 76.68271731871303,
+      "relative_error_percent": 2.343176102037603e-05
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 73.8741786285622,
+      "surrogate_usd_per_mwh": 73.87419644444424,
+      "relative_error_percent": 2.4116521313288786e-05
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 76.23012799026061,
+      "surrogate_usd_per_mwh": 76.22517295783447,
+      "relative_error_percent": -0.006500097214545697
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 73.54280047010599,
+      "surrogate_usd_per_mwh": 73.53784529202379,
+      "relative_error_percent": -0.006737815327295671
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 70.85547294995135,
+      "surrogate_usd_per_mwh": 70.85051762621312,
+      "relative_error_percent": -0.006993565256041556
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 73.23286675183675,
+      "surrogate_usd_per_mwh": 73.22932175293312,
+      "relative_error_percent": -0.0048407211964640595
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 70.65670565787555,
+      "surrogate_usd_per_mwh": 70.65316051934123,
+      "relative_error_percent": -0.00501741271591305
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 68.08054456391437,
+      "surrogate_usd_per_mwh": 68.07699928574934,
+      "relative_error_percent": -0.00520747621474138
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 70.46821517191091,
+      "surrogate_usd_per_mwh": 70.4714829062795,
+      "relative_error_percent": 0.004637174874688732
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 67.99438862917789,
+      "surrogate_usd_per_mwh": 67.99765622946242,
+      "relative_error_percent": 0.004805691102460763
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 65.52056208644488,
+      "surrogate_usd_per_mwh": 65.52382955264535,
+      "relative_error_percent": 0.004986932493289409
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 50.11137870660813,
+      "surrogate_usd_per_mwh": 50.11141250423327,
+      "relative_error_percent": 6.744501153121973e-05
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 47.30285798456417,
+      "surrogate_usd_per_mwh": 47.30289162996447,
+      "relative_error_percent": 7.112762681060758e-05
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 44.494337262520226,
+      "surrogate_usd_per_mwh": 44.49437075569567,
+      "relative_error_percent": 7.527514174210381e-05
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 48.00832591490226,
+      "surrogate_usd_per_mwh": 48.0067006512434,
+      "relative_error_percent": -0.0033853787398063773
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 45.320998394747626,
+      "surrogate_usd_per_mwh": 45.31937298543273,
+      "relative_error_percent": -0.0035864375730221276
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 42.633670874593,
+      "surrogate_usd_per_mwh": 42.63204531962206,
+      "relative_error_percent": -0.0038128430829287296
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 46.07727612002515,
+      "surrogate_usd_per_mwh": 46.07611963501169,
+      "relative_error_percent": -0.002509881466172814
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 43.50111502606397,
+      "surrogate_usd_per_mwh": 43.4999584014198,
+      "relative_error_percent": -0.0026588390745208024
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 40.92495393210279,
+      "surrogate_usd_per_mwh": 40.923797167827914,
+      "relative_error_percent": -0.0028265499743551636
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 44.297804820827906,
+      "surrogate_usd_per_mwh": 44.298918112297514,
+      "relative_error_percent": 0.002513197830245062
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 41.823978278094884,
+      "surrogate_usd_per_mwh": 41.82509143548044,
+      "relative_error_percent": 0.0026615291786713513
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 39.35015173536188,
+      "surrogate_usd_per_mwh": 39.351264758663355,
+      "relative_error_percent": 0.0028285108249814783
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 101.28592097347446,
+      "surrogate_usd_per_mwh": 101.29553036450784,
+      "relative_error_percent": 0.009487390686713226
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 98.55094571186483,
+      "surrogate_usd_per_mwh": 98.55865913851332,
+      "relative_error_percent": 0.007826841835734122
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 95.81597045025521,
+      "surrogate_usd_per_mwh": 95.8217879125188,
+      "relative_error_percent": 0.0060714954263518806
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 97.19398623349775,
+      "surrogate_usd_per_mwh": 97.19501094213003,
+      "relative_error_percent": 0.0010542922170175828
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 94.57703054227653,
+      "surrogate_usd_per_mwh": 94.57624110112214,
+      "relative_error_percent": -0.0008347070635128517
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 91.96007485105531,
+      "surrogate_usd_per_mwh": 91.95747126011425,
+      "relative_error_percent": -0.0028312188145585004
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 93.43063995958322,
+      "surrogate_usd_per_mwh": 93.43374312663958,
+      "relative_error_percent": 0.0033213590934444426
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 90.9219396296895,
+      "surrogate_usd_per_mwh": 90.92330369272375,
+      "relative_error_percent": 0.0015002572974154305
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 88.41323929979579,
+      "surrogate_usd_per_mwh": 88.41286425880791,
+      "relative_error_percent": -0.00042419098185142445
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 89.9570902673121,
+      "surrogate_usd_per_mwh": 89.97129797006548,
+      "relative_error_percent": 0.015793866510316334
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 87.54804470009118,
+      "surrogate_usd_per_mwh": 87.56058238240192,
+      "relative_error_percent": 0.014320916422150276
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 85.13899913287027,
+      "surrogate_usd_per_mwh": 85.14986679473836,
+      "relative_error_percent": 0.012764610787985298
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 74.08179633559985,
+      "surrogate_usd_per_mwh": 74.09142059114056,
+      "relative_error_percent": 0.012991390620609167
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 71.34682107399023,
+      "surrogate_usd_per_mwh": 71.35454936514606,
+      "relative_error_percent": 0.010832004901550896
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 68.61184581238058,
+      "surrogate_usd_per_mwh": 68.61767813915154,
+      "relative_error_percent": 0.008500466212368885
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 71.05401442336522,
+      "surrogate_usd_per_mwh": 71.058368123052,
+      "relative_error_percent": 0.006127309937542513
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 68.43705873214401,
+      "surrogate_usd_per_mwh": 68.43959828204412,
+      "relative_error_percent": 0.003710781771104621
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 65.82010304092279,
+      "surrogate_usd_per_mwh": 65.82082844103624,
+      "relative_error_percent": 0.001102095074201337
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 68.27076071511942,
+      "surrogate_usd_per_mwh": 68.27625165052474,
+      "relative_error_percent": 0.008042880067260505
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 65.7620603852257,
+      "surrogate_usd_per_mwh": 65.76581221660891,
+      "relative_error_percent": 0.005705160941182896
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 63.253360055331974,
+      "surrogate_usd_per_mwh": 63.25537278269308,
+      "relative_error_percent": 0.0031820086068945486
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 65.70311434000347,
+      "surrogate_usd_per_mwh": 65.71516688393227,
+      "relative_error_percent": 0.01834394617343804
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 63.29406877278254,
+      "surrogate_usd_per_mwh": 63.30445129626871,
+      "relative_error_percent": 0.016403627839833845
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 60.88502320556163,
+      "surrogate_usd_per_mwh": 60.89373570860515,
+      "relative_error_percent": 0.014309763854569724
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 46.87767169772521,
+      "surrogate_usd_per_mwh": 46.88731081777327,
+      "relative_error_percent": 0.020562284130098973
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 44.1426964361156,
+      "surrogate_usd_per_mwh": 44.150439591778756,
+      "relative_error_percent": 0.017541193194592353
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 41.40772117450596,
+      "surrogate_usd_per_mwh": 41.41356836578424,
+      "relative_error_percent": 0.014121016835577649
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 44.914042613232695,
+      "surrogate_usd_per_mwh": 44.921725303973986,
+      "relative_error_percent": 0.01710532006091725
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 42.29708692201148,
+      "surrogate_usd_per_mwh": 42.3029554629661,
+      "relative_error_percent": 0.013874574779682014
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 39.68013123079025,
+      "surrogate_usd_per_mwh": 39.68418562195822,
+      "relative_error_percent": 0.010217685885138827
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 43.110881470655606,
+      "surrogate_usd_per_mwh": 43.1187601744099,
+      "relative_error_percent": 0.0182754411079733
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 40.60218114076189,
+      "surrogate_usd_per_mwh": 40.608320740494065,
+      "relative_error_percent": 0.01512135446835039
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 38.09348081086816,
+      "surrogate_usd_per_mwh": 38.09788130657824,
+      "relative_error_percent": 0.011551834110212766
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 41.44913841269481,
+      "surrogate_usd_per_mwh": 41.45903579779907,
+      "relative_error_percent": 0.02387838561495048
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 39.0400928454739,
+      "surrogate_usd_per_mwh": 39.0483202101355,
+      "relative_error_percent": 0.02107414214962411
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 36.631047278252986,
+      "surrogate_usd_per_mwh": 36.63760462247194,
+      "relative_error_percent": 0.01790105581516155
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 94.2452526573252,
+      "surrogate_usd_per_mwh": 94.25739472359959,
+      "relative_error_percent": 0.012883477875047511
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 91.58189695447929,
+      "surrogate_usd_per_mwh": 91.59217314587937,
+      "relative_error_percent": 0.01122076714046294
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 88.91854125163339,
+      "surrogate_usd_per_mwh": 88.92695156815914,
+      "relative_error_percent": 0.009458450855537315
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 90.45702257159584,
+      "surrogate_usd_per_mwh": 90.46058471912212,
+      "relative_error_percent": 0.003937944700171947
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 87.90859591408852,
+      "surrogate_usd_per_mwh": 87.91037270291703,
+      "relative_error_percent": 0.0020211775765943685
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 85.3601692565812,
+      "surrogate_usd_per_mwh": 85.36016068671194,
+      "relative_error_percent": -1.0039658238092386e-05
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 86.97225430787225,
+      "surrogate_usd_per_mwh": 86.97789928336046,
+      "relative_error_percent": 0.006490547512116862
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 84.52924817756397,
+      "surrogate_usd_per_mwh": 84.53318164912068,
+      "relative_error_percent": 0.0046533852382513174
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 82.08624204725568,
+      "surrogate_usd_per_mwh": 82.08846401488091,
+      "relative_error_percent": 0.002706869713864357
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 83.75515034864391,
+      "surrogate_usd_per_mwh": 83.77190388221884,
+      "relative_error_percent": 0.02000298907611775
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 81.40918936686256,
+      "surrogate_usd_per_mwh": 81.4242993837088,
+      "relative_error_percent": 0.01856057892695162
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 79.06322838508117,
+      "surrogate_usd_per_mwh": 79.07669488519875,
+      "relative_error_percent": 0.017032570504182942
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 69.05603718538809,
+      "surrogate_usd_per_mwh": 69.06819335676664,
+      "relative_error_percent": 0.01760334342082448
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 66.39268148254219,
+      "surrogate_usd_per_mwh": 66.40297177904641,
+      "relative_error_percent": 0.01549914278868858
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 63.72932577969628,
+      "surrogate_usd_per_mwh": 63.737750201326186,
+      "relative_error_percent": 0.013219065990166534
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 66.24501262755739,
+      "surrogate_usd_per_mwh": 66.25190303950473,
+      "relative_error_percent": 0.010401404836435368
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 63.69658597005005,
+      "surrogate_usd_per_mwh": 63.70169102329964,
+      "relative_error_percent": 0.008014641871056938
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 61.148159312542724,
+      "surrogate_usd_per_mwh": 61.151479007094544,
+      "relative_error_percent": 0.005428936192264366
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 63.660583111300774,
+      "surrogate_usd_per_mwh": 63.66861515856305,
+      "relative_error_percent": 0.012616986633995353
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 61.2175769809925,
+      "surrogate_usd_per_mwh": 61.22389752432327,
+      "relative_error_percent": 0.01032471986393002
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 58.774570850684206,
+      "surrogate_usd_per_mwh": 58.7791798900835,
+      "relative_error_percent": 0.007841893751980855
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 61.27596487837867,
+      "surrogate_usd_per_mwh": 61.29056258422467,
+      "relative_error_percent": 0.023822890222913173
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 58.93000389659732,
+      "surrogate_usd_per_mwh": 58.94295808571463,
+      "relative_error_percent": 0.021982332022307816
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 56.58404291481595,
+      "surrogate_usd_per_mwh": 56.59535358720459,
+      "relative_error_percent": 0.019989155609945186
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 43.86682171345099,
+      "surrogate_usd_per_mwh": 43.87899198993366,
+      "relative_error_percent": 0.02774369331375315
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 41.2034660106051,
+      "surrogate_usd_per_mwh": 41.213770412213435,
+      "relative_error_percent": 0.02500857963183556
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 38.5401103077592,
+      "surrogate_usd_per_mwh": 38.54854883449321,
+      "relative_error_percent": 0.02189544001462984
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 42.03300268351892,
+      "surrogate_usd_per_mwh": 42.043221359887305,
+      "relative_error_percent": 0.02431107871432303
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 39.484576026011595,
+      "surrogate_usd_per_mwh": 39.49300934368221,
+      "relative_error_percent": 0.021358511397107094
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 36.93614936850425,
+      "surrogate_usd_per_mwh": 36.942797327477116,
+      "relative_error_percent": 0.017998516592876435
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 40.34891191472931,
+      "surrogate_usd_per_mwh": 40.35933103376565,
+      "relative_error_percent": 0.025822552683352207
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 37.90590578442102,
+      "surrogate_usd_per_mwh": 37.91461339952588,
+      "relative_error_percent": 0.0229716581747752
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 35.46289965411273,
+      "surrogate_usd_per_mwh": 35.469895765286104,
+      "relative_error_percent": 0.019727972730954058
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 38.79677940811345,
+      "surrogate_usd_per_mwh": 38.8092212862305,
+      "relative_error_percent": 0.03206935809330069
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 36.45081842633209,
+      "surrogate_usd_per_mwh": 36.46161678772046,
+      "relative_error_percent": 0.029624468954492222
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 34.10485744455073,
+      "surrogate_usd_per_mwh": 34.114012289210415,
+      "relative_error_percent": 0.026843228049155954
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 87.70668784639878,
+      "surrogate_usd_per_mwh": 87.71447356161825,
+      "relative_error_percent": 0.008876991493633746
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 85.11307623336101,
+      "surrogate_usd_per_mwh": 85.1209016321723,
+      "relative_error_percent": 0.009194120524846916
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 82.51946462032322,
+      "surrogate_usd_per_mwh": 82.52732970272638,
+      "relative_error_percent": 0.009531184477928889
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 84.20049864620141,
+      "surrogate_usd_per_mwh": 84.2000034947122,
+      "relative_error_percent": -0.0005880624190601758
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 81.71880648363242,
+      "surrogate_usd_per_mwh": 81.7183493033099,
+      "relative_error_percent": -0.0005594554573051802
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 79.23711432106343,
+      "surrogate_usd_per_mwh": 79.23669511190761,
+      "relative_error_percent": -0.0005290565657456447
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 80.974436950142,
+      "surrogate_usd_per_mwh": 80.9762989369387,
+      "relative_error_percent": 0.002299474830369519
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 78.59540471516131,
+      "surrogate_usd_per_mwh": 78.59730310237498,
+      "relative_error_percent": 0.002415392121912774
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 76.21637248018061,
+      "surrogate_usd_per_mwh": 76.21830726781127,
+      "relative_error_percent": 0.002538545941899173
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 77.99548601434199,
+      "surrogate_usd_per_mwh": 78.00870907632851,
+      "relative_error_percent": 0.016953624706039783
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 75.71095765052634,
+      "surrogate_usd_per_mwh": 75.724215666972,
+      "relative_error_percent": 0.017511357479937928
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 73.42642928671069,
+      "surrogate_usd_per_mwh": 73.43972225761547,
+      "relative_error_percent": 0.018103795913693155
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 64.38424861516883,
+      "surrogate_usd_per_mwh": 64.39204772562137,
+      "relative_error_percent": 0.012113382729928013
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 61.79063700213104,
+      "surrogate_usd_per_mwh": 61.79847579617544,
+      "relative_error_percent": 0.0126860547563723
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 59.19702538909327,
+      "surrogate_usd_per_mwh": 59.2049038667295,
+      "relative_error_percent": 0.01330890798050266
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 61.77470987056939,
+      "surrogate_usd_per_mwh": 61.777542304262546,
+      "relative_error_percent": 0.004585102381038375
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 59.293017708000406,
+      "surrogate_usd_per_mwh": 59.29588811286025,
+      "relative_error_percent": 0.004841050381299006
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 56.81132554543143,
+      "surrogate_usd_per_mwh": 56.81423392145794,
+      "relative_error_percent": 0.005119359561822634
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 59.37509647796016,
+      "surrogate_usd_per_mwh": 59.379344885390246,
+      "relative_error_percent": 0.007155200887387636
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 56.996064242979465,
+      "surrogate_usd_per_mwh": 57.00034905082652,
+      "relative_error_percent": 0.007517725835937128
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 54.61703200799877,
+      "surrogate_usd_per_mwh": 54.621353216262804,
+      "relative_error_percent": 0.007911832820561848
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 57.160611222419845,
+      "surrogate_usd_per_mwh": 57.17167783140242,
+      "relative_error_percent": 0.01936055046631857
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 54.87608285860418,
+      "surrogate_usd_per_mwh": 54.8871844220459,
+      "relative_error_percent": 0.020230240322227644
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 52.59155449478852,
+      "surrogate_usd_per_mwh": 52.60269101268937,
+      "relative_error_percent": 0.02117548722002649
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 41.06180938393887,
+      "surrogate_usd_per_mwh": 41.069621889624514,
+      "relative_error_percent": 0.019026209031824948
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 38.46819777090109,
+      "surrogate_usd_per_mwh": 38.47604996017858,
+      "relative_error_percent": 0.020412157918725526
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 35.87458615786331,
+      "surrogate_usd_per_mwh": 35.88247803073264,
+      "relative_error_percent": 0.021998505668063828
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 39.34892109493738,
+      "surrogate_usd_per_mwh": 39.355081113812886,
+      "relative_error_percent": 0.01565486093162427
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 36.8672289323684,
+      "surrogate_usd_per_mwh": 36.87342692241059,
+      "relative_error_percent": 0.01681165149016728
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 34.385536769799415,
+      "surrogate_usd_per_mwh": 34.39177273100828,
+      "relative_error_percent": 0.01813541911710459
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 37.77575600577833,
+      "surrogate_usd_per_mwh": 37.782390833841795,
+      "relative_error_percent": 0.017563720134283756
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 35.396723770797635,
+      "surrogate_usd_per_mwh": 35.40339499927807,
+      "relative_error_percent": 0.01884702246353065
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 33.01769153581694,
+      "surrogate_usd_per_mwh": 33.02439916471435,
+      "relative_error_percent": 0.020315257019531963
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 36.32573643049769,
+      "surrogate_usd_per_mwh": 36.33464658647633,
+      "relative_error_percent": 0.024528493718745104
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 34.04120806668204,
+      "surrogate_usd_per_mwh": 34.05015317711981,
+      "relative_error_percent": 0.026277300206989374
+    },
+    {
+      "sliders": {
+        "site": 0.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 31.756679702866368,
+      "surrogate_usd_per_mwh": 31.76565976776329,
+      "relative_error_percent": 0.02827771977720328
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 103.56296390931459,
+      "surrogate_usd_per_mwh": 103.56296545228422,
+      "relative_error_percent": 1.4898855482670115e-06
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 100.75444318727062,
+      "surrogate_usd_per_mwh": 100.75444457801541,
+      "relative_error_percent": 1.3803309828475108e-06
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 97.94592246522667,
+      "surrogate_usd_per_mwh": 97.94592370374662,
+      "relative_error_percent": 1.2644936209227353e-06
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 99.37288740148661,
+      "surrogate_usd_per_mwh": 99.36460173906426,
+      "relative_error_percent": -0.00833795076203847
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 96.68555988133198,
+      "surrogate_usd_per_mwh": 96.67727407325359,
+      "relative_error_percent": -0.008569850646333865
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 93.99823236117736,
+      "surrogate_usd_per_mwh": 93.98994640744291,
+      "relative_error_percent": -0.008815010161689063
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 95.51951900238477,
+      "surrogate_usd_per_mwh": 95.51358466398842,
+      "relative_error_percent": -0.006212697109786447
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 92.94335790842358,
+      "surrogate_usd_per_mwh": 92.93742343039654,
+      "relative_error_percent": -0.006385048012669259
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 90.3671968144624,
+      "surrogate_usd_per_mwh": 90.36126219680465,
+      "relative_error_percent": -0.006567225571840751
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 91.96309920178057,
+      "surrogate_usd_per_mwh": 91.96852058624157,
+      "relative_error_percent": 0.005895173725178893
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 89.48927265904754,
+      "surrogate_usd_per_mwh": 89.49469390942448,
+      "relative_error_percent": 0.0060579890928336155
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 87.01544611631454,
+      "surrogate_usd_per_mwh": 87.02086723260742,
+      "relative_error_percent": 0.006230062057754893
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 75.81453154936935,
+      "surrogate_usd_per_mwh": 75.81454852381908,
+      "relative_error_percent": 2.2389440901271485e-05
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 73.0060108273254,
+      "surrogate_usd_per_mwh": 73.00602764955028,
+      "relative_error_percent": 2.304224637761365e-05
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 70.19749010528145,
+      "surrogate_usd_per_mwh": 70.19750677528148,
+      "relative_error_percent": 2.374728784726443e-05
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 72.71209581976682,
+      "surrogate_usd_per_mwh": 72.70713969090576,
+      "relative_error_percent": -0.006816099584505686
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 70.02476829961219,
+      "surrogate_usd_per_mwh": 70.01981202509508,
+      "relative_error_percent": -0.007077887778084158
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 67.33744077945755,
+      "surrogate_usd_per_mwh": 67.33248435928441,
+      "relative_error_percent": -0.007360571051961973
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 69.86036468911517,
+      "surrogate_usd_per_mwh": 69.85681863913274,
+      "relative_error_percent": -0.005075911066609873
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 67.28420359515398,
+      "surrogate_usd_per_mwh": 67.28065740554085,
+      "relative_error_percent": -0.005270463829032401
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 64.7080425011928,
+      "surrogate_usd_per_mwh": 64.70449617194896,
+      "relative_error_percent": -0.005480507687716241
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 67.22968123948743,
+      "surrogate_usd_per_mwh": 67.23294796452993,
+      "relative_error_percent": 0.004859051809069648
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 64.75585469675441,
+      "surrogate_usd_per_mwh": 64.75912128771284,
+      "relative_error_percent": 0.005044471999826605
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 62.282028154021404,
+      "surrogate_usd_per_mwh": 62.285294610895775,
+      "relative_error_percent": 0.005244621877587008
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 48.066099189424136,
+      "surrogate_usd_per_mwh": 48.06613159535395,
+      "relative_error_percent": 6.741951263933288e-05
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 45.25757846738019,
+      "surrogate_usd_per_mwh": 45.25761072108515,
+      "relative_error_percent": 7.126697019188555e-05
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 42.44905774533623,
+      "surrogate_usd_per_mwh": 42.44908984681635,
+      "relative_error_percent": 7.562353989687409e-05
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 46.05130423804703,
+      "surrogate_usd_per_mwh": 46.04967764274725,
+      "relative_error_percent": -0.003532137312278749
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 43.3639767178924,
+      "surrogate_usd_per_mwh": 43.36234997693657,
+      "relative_error_percent": -0.0037513647938913763
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 40.676649197737774,
+      "surrogate_usd_per_mwh": 40.67502231112589,
+      "relative_error_percent": -0.003999559068823544
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 44.20121037584559,
+      "surrogate_usd_per_mwh": 44.20005261427706,
+      "relative_error_percent": -0.002619298337502851
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 41.62504928188441,
+      "surrogate_usd_per_mwh": 41.62389138068517,
+      "relative_error_percent": -0.0027817413293496074
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 39.048888187923225,
+      "surrogate_usd_per_mwh": 39.04773014709328,
+      "relative_error_percent": -0.002965617930961173
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 42.49626327719434,
+      "surrogate_usd_per_mwh": 42.497375342818316,
+      "relative_error_percent": 0.0026168550790517386
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 40.022436734461316,
+      "surrogate_usd_per_mwh": 40.02354866600124,
+      "relative_error_percent": 0.002778270466885502
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 37.54861019172831,
+      "surrogate_usd_per_mwh": 37.54972198918416,
+      "relative_error_percent": 0.0029609550131759477
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 97.3567062584404,
+      "surrogate_usd_per_mwh": 97.3663149832157,
+      "relative_error_percent": 0.00986960749247423
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 94.62173099683078,
+      "surrogate_usd_per_mwh": 94.62944375722118,
+      "relative_error_percent": 0.008151151230428866
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 91.88675573522116,
+      "surrogate_usd_per_mwh": 91.89257253122668,
+      "relative_error_percent": 0.006330396539722116
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 93.43432487389668,
+      "surrogate_usd_per_mwh": 93.4353489450212,
+      "relative_error_percent": 0.001096033096947835
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 90.81736918267546,
+      "surrogate_usd_per_mwh": 90.81657910401331,
+      "relative_error_percent": -0.0008699642692344689
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 88.20041349145423,
+      "surrogate_usd_per_mwh": 88.19780926300542,
+      "relative_error_percent": -0.0029526261223877803
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 89.82650415982177,
+      "surrogate_usd_per_mwh": 89.82960671574212,
+      "relative_error_percent": 0.0034539426301494203
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 87.31780382992804,
+      "surrogate_usd_per_mwh": 87.31916728182628,
+      "relative_error_percent": 0.001561482124423641
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 84.80910350003433,
+      "surrogate_usd_per_mwh": 84.80872784791045,
+      "relative_error_percent": -0.0004429384445447937
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 86.49612393800749,
+      "surrogate_usd_per_mwh": 86.51033105390141,
+      "relative_error_percent": 0.01642514744835122
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 84.08707837078657,
+      "surrogate_usd_per_mwh": 84.09961546623785,
+      "relative_error_percent": 0.01490965757662277
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 81.67803280356566,
+      "surrogate_usd_per_mwh": 81.68889987857429,
+      "relative_error_percent": 0.013304770738997718
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 71.360200025751,
+      "surrogate_usd_per_mwh": 71.36982343307515,
+      "relative_error_percent": 0.013485678740643436
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 68.62522476414136,
+      "surrogate_usd_per_mwh": 68.63295220708065,
+      "relative_error_percent": 0.011260353559272573
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 65.89024950253174,
+      "surrogate_usd_per_mwh": 65.89608098108613,
+      "relative_error_percent": 0.008850290594453192
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 68.44986035578002,
+      "surrogate_usd_per_mwh": 68.45421324385246,
+      "relative_error_percent": 0.006359235869624058
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 65.83290466455882,
+      "surrogate_usd_per_mwh": 65.83544340284458,
+      "relative_error_percent": 0.0038563364303634273
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 63.21594897333759,
+      "surrogate_usd_per_mwh": 63.21667356183669,
+      "relative_error_percent": 0.0011462115350191482
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 65.77433244529405,
+      "surrogate_usd_per_mwh": 65.779822602659,
+      "relative_error_percent": 0.008346960221161659
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 63.26563211540033,
+      "surrogate_usd_per_mwh": 63.269383168743154,
+      "relative_error_percent": 0.005929053764908154
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 60.75693178550661,
+      "surrogate_usd_per_mwh": 60.75894373482733,
+      "relative_error_percent": 0.0033114728831717954
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 63.30585334169101,
+      "surrogate_usd_per_mwh": 63.317905138486054,
+      "relative_error_percent": 0.01903741306510387
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 60.896807774470105,
+      "surrogate_usd_per_mwh": 60.907189550822494,
+      "relative_error_percent": 0.017048145431264317
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 58.487762207249176,
+      "surrogate_usd_per_mwh": 58.496473963158934,
+      "relative_error_percent": 0.014895006375681419
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 45.3636937930616,
+      "surrogate_usd_per_mwh": 45.373331882934586,
+      "relative_error_percent": 0.021246263403851273
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 42.62871853145198,
+      "surrogate_usd_per_mwh": 42.63646065694007,
+      "relative_error_percent": 0.018161759853008164
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 39.89374326984235,
+      "surrogate_usd_per_mwh": 39.89958943094556,
+      "relative_error_percent": 0.014654330789820591
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 43.46539583766338,
+      "surrogate_usd_per_mwh": 43.473077542683676,
+      "relative_error_percent": 0.017673150956643013
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 40.848440146442165,
+      "surrogate_usd_per_mwh": 40.85430770167579,
+      "relative_error_percent": 0.014364208798656186
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 38.23148445522095,
+      "surrogate_usd_per_mwh": 38.23553786066791,
+      "relative_error_percent": 0.010602270627790844
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 41.722160730766326,
+      "surrogate_usd_per_mwh": 41.73003848957585,
+      "relative_error_percent": 0.01888147370976423
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 39.213460400872606,
+      "surrogate_usd_per_mwh": 39.21959905566001,
+      "relative_error_percent": 0.015654458251468384
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 36.70476007097888,
+      "surrogate_usd_per_mwh": 36.709159621744185,
+      "relative_error_percent": 0.011986322092272239
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 40.11558274537453,
+      "surrogate_usd_per_mwh": 40.12547922307069,
+      "relative_error_percent": 0.02466990884557596
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 37.706537178153624,
+      "surrogate_usd_per_mwh": 37.71476363540713,
+      "relative_error_percent": 0.021817058444373316
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 35.2974916109327,
+      "surrogate_usd_per_mwh": 35.30404804774357,
+      "relative_error_percent": 0.018574795294634683
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 91.57540722646851,
+      "surrogate_usd_per_mwh": 91.58754884003005,
+      "relative_error_percent": 0.013258596307963444
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 88.91205152362262,
+      "surrogate_usd_per_mwh": 88.92232726230984,
+      "relative_error_percent": 0.011557194453537534
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 86.24869582077672,
+      "surrogate_usd_per_mwh": 86.2571056845896,
+      "relative_error_percent": 0.00975071417932405
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 87.90238623062605,
+      "surrogate_usd_per_mwh": 87.90594794497493,
+      "relative_error_percent": 0.004051897225565426
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 85.35395957311871,
+      "surrogate_usd_per_mwh": 85.35573592876983,
+      "relative_error_percent": 0.0020811637327700083
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 82.80553291561138,
+      "surrogate_usd_per_mwh": 82.80552391256474,
+      "relative_error_percent": -1.0872518207971638e-05
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 84.52329536949652,
+      "surrogate_usd_per_mwh": 84.52893992972652,
+      "relative_error_percent": 0.006678111880664694
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 82.08028923918825,
+      "surrogate_usd_per_mwh": 82.08422229548674,
+      "relative_error_percent": 0.004791718371066622
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 79.63728310887996,
+      "surrogate_usd_per_mwh": 79.63950466124697,
+      "relative_error_percent": 0.002789588343921068
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 81.40347302612766,
+      "surrogate_usd_per_mwh": 81.42022616093996,
+      "relative_error_percent": 0.02058036861267709
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 79.05751204434631,
+      "surrogate_usd_per_mwh": 79.07262166242992,
+      "relative_error_percent": 0.01911218515848745
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 76.71155106256494,
+      "surrogate_usd_per_mwh": 76.72501716391987,
+      "relative_error_percent": 0.017554202943892427
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 67.20675125945382,
+      "surrogate_usd_per_mwh": 67.21890685448129,
+      "relative_error_percent": 0.01808686597650766
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 64.54339555660792,
+      "surrogate_usd_per_mwh": 64.55368527676106,
+      "relative_error_percent": 0.015942328513096626
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 61.88003985376202,
+      "surrogate_usd_per_mwh": 61.88846369904084,
+      "relative_error_percent": 0.013613186576355574
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 64.47552703238576,
+      "surrogate_usd_per_mwh": 64.48241689285271,
+      "relative_error_percent": 0.01068600876032999
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 61.927100374878435,
+      "surrogate_usd_per_mwh": 61.93220487664762,
+      "relative_error_percent": 0.008242759209275974
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 59.37867371737109,
+      "surrogate_usd_per_mwh": 59.38199286044252,
+      "relative_error_percent": 0.005589789841420334
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 61.96429566125317,
+      "surrogate_usd_per_mwh": 61.97232717984807,
+      "relative_error_percent": 0.012961526487464958
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 59.52128953094488,
+      "surrogate_usd_per_mwh": 59.52760954560829,
+      "relative_error_percent": 0.01061807416005145
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 57.07828340063659,
+      "surrogate_usd_per_mwh": 57.08289191136852,
+      "relative_error_percent": 0.008074017747827789
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 59.64706017677855,
+      "surrogate_usd_per_mwh": 59.661657374957784,
+      "relative_error_percent": 0.024472619666360274
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 57.30109919499719,
+      "surrogate_usd_per_mwh": 57.31405287644774,
+      "relative_error_percent": 0.022606340249198276
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 54.955138213215825,
+      "surrogate_usd_per_mwh": 54.9664483779377,
+      "relative_error_percent": 0.020580722912555416
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 42.83809529243915,
+      "surrogate_usd_per_mwh": 42.85026486893253,
+      "relative_error_percent": 0.028408304361571268
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 40.17473958959325,
+      "surrogate_usd_per_mwh": 40.1850432912123,
+      "relative_error_percent": 0.025647214454438405
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 37.51138388674735,
+      "surrogate_usd_per_mwh": 37.51982171349208,
+      "relative_error_percent": 0.022494042795639935
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 41.04866783414548,
+      "surrogate_usd_per_mwh": 41.05888584073049,
+      "relative_error_percent": 0.02489241947214449
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 38.500241176638156,
+      "surrogate_usd_per_mwh": 38.508673824525395,
+      "relative_error_percent": 0.021902844318688608
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 35.95181451913083,
+      "surrogate_usd_per_mwh": 35.9584618083203,
+      "relative_error_percent": 0.01848944004185782
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 39.4052959530098,
+      "surrogate_usd_per_mwh": 39.41571442996964,
+      "relative_error_percent": 0.026439281086143573
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 36.962289822701514,
+      "surrogate_usd_per_mwh": 36.97099679572986,
+      "relative_error_percent": 0.02355636804458605
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 34.51928369239323,
+      "surrogate_usd_per_mwh": 34.52627916149009,
+      "relative_error_percent": 0.02026539472601563
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 37.89064732742944,
+      "surrogate_usd_per_mwh": 37.90308858897561,
+      "relative_error_percent": 0.032834650299484736
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 35.54468634564809,
+      "surrogate_usd_per_mwh": 35.55548409046557,
+      "relative_error_percent": 0.030377943731108026
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 33.19872536386672,
+      "surrogate_usd_per_mwh": 33.207879591955525,
+      "relative_error_percent": 0.027574034811483905
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 86.18705690616555,
+      "surrogate_usd_per_mwh": 86.19484236370849,
+      "relative_error_percent": 0.00903320965166543
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 83.59344529312777,
+      "surrogate_usd_per_mwh": 83.60127043426255,
+      "relative_error_percent": 0.00936095061918607
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 80.99983368008999,
+      "surrogate_usd_per_mwh": 81.00769850481662,
+      "relative_error_percent": 0.009709680093528128
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 82.74644277468367,
+      "surrogate_usd_per_mwh": 82.7459473766372,
+      "relative_error_percent": -0.0005986940705304811
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 80.26475061211468,
+      "surrogate_usd_per_mwh": 80.2642931852349,
+      "relative_error_percent": -0.0005698975905188419
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 77.78305844954569,
+      "surrogate_usd_per_mwh": 77.7826389938326,
+      "relative_error_percent": -0.0005392635895828946
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 79.58053087187052,
+      "surrogate_usd_per_mwh": 79.58239262230926,
+      "relative_error_percent": 0.002339454661015594
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 77.20149863688981,
+      "surrogate_usd_per_mwh": 77.20339678774553,
+      "relative_error_percent": 0.0024586969025630623
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 74.82246640190913,
+      "surrogate_usd_per_mwh": 74.82440095318182,
+      "relative_error_percent": 0.0025855219237369553
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 76.65695098926608,
+      "surrogate_usd_per_mwh": 76.67017382428365,
+      "relative_error_percent": 0.017249362056448447
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 74.37242262545043,
+      "surrogate_usd_per_mwh": 74.38568041492714,
+      "relative_error_percent": 0.01782621704213838
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 72.08789426163477,
+      "surrogate_usd_per_mwh": 72.10118700557061,
+      "relative_error_percent": 0.018439634104994163
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 63.33166629039887,
+      "surrogate_usd_per_mwh": 63.33946507280212,
+      "relative_error_percent": 0.012314191083317994
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 60.738054677361085,
+      "surrogate_usd_per_mwh": 60.745893143356184,
+      "relative_error_percent": 0.012905362275317245
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 58.14444306432331,
+      "surrogate_usd_per_mwh": 58.15232121391025,
+      "relative_error_percent": 0.013549273450297328
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 60.767548546680686,
+      "surrogate_usd_per_mwh": 60.77038066648052,
+      "relative_error_percent": 0.00466057931833852
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 58.28585638411171,
+      "surrogate_usd_per_mwh": 58.28872647507822,
+      "relative_error_percent": 0.004924163672903603
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 55.80416422154273,
+      "surrogate_usd_per_mwh": 55.807072283675915,
+      "relative_error_percent": 0.005211191984955121
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 58.40959830236182,
+      "surrogate_usd_per_mwh": 58.413846408883366,
+      "relative_error_percent": 0.007272959659054834
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 56.03056606738112,
+      "surrogate_usd_per_mwh": 56.03485057431964,
+      "relative_error_percent": 0.007646731488253344
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 53.65153383240043,
+      "surrogate_usd_per_mwh": 53.655854739755924,
+      "relative_error_percent": 0.008053651120198957
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 56.23346616951366,
+      "surrogate_usd_per_mwh": 56.2445324895409,
+      "relative_error_percent": 0.01967924223962303
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 53.948937805698,
+      "surrogate_usd_per_mwh": 53.96003908018438,
+      "relative_error_percent": 0.02057737360161571
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 51.66440944188234,
+      "surrogate_usd_per_mwh": 51.67554567082785,
+      "relative_error_percent": 0.021554933204148696
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 40.476275674632184,
+      "surrogate_usd_per_mwh": 40.484087781895745,
+      "relative_error_percent": 0.01930045967262206
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 37.88266406159441,
+      "surrogate_usd_per_mwh": 37.89051585244981,
+      "relative_error_percent": 0.020726606879151177
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 35.289052448556625,
+      "surrogate_usd_per_mwh": 35.29694392300387,
+      "relative_error_percent": 0.02236238691517567
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 38.78865431867771,
+      "surrogate_usd_per_mwh": 38.79481395632382,
+      "relative_error_percent": 0.0158799982992619
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 36.30696215610872,
+      "surrogate_usd_per_mwh": 36.313159764921515,
+      "relative_error_percent": 0.017070028569587947
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 33.825269993539735,
+      "surrogate_usd_per_mwh": 33.831505573519216,
+      "relative_error_percent": 0.01843467910431773
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 37.23866573285313,
+      "surrogate_usd_per_mwh": 37.24530019545749,
+      "relative_error_percent": 0.017816058856556793
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 34.85963349787243,
+      "surrogate_usd_per_mwh": 34.86630436089377,
+      "relative_error_percent": 0.019136354436288805
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 32.48060126289174,
+      "surrogate_usd_per_mwh": 32.487308526330054,
+      "relative_error_percent": 0.020650059350901806
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 35.80998134976123,
+      "surrogate_usd_per_mwh": 35.818891154798145,
+      "relative_error_percent": 0.02488078658822168
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 33.52545298594556,
+      "surrogate_usd_per_mwh": 33.534397745441616,
+      "relative_error_percent": 0.026680503019016477
+    },
+    {
+      "sliders": {
+        "site": 7.5,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 31.24092462212991,
+      "surrogate_usd_per_mwh": 31.2499043360851,
+      "relative_error_percent": 0.028743432096844934
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 98.25486637993703,
+      "surrogate_usd_per_mwh": 98.25486702283803,
+      "relative_error_percent": 6.543197539343737e-07
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 95.44634565789308,
+      "surrogate_usd_per_mwh": 95.44634614856922,
+      "relative_error_percent": 5.140858405638937e-07
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 92.63782493584911,
+      "surrogate_usd_per_mwh": 92.63782527430043,
+      "relative_error_percent": 3.653489510924146e-07
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 94.29384473735423,
+      "surrogate_usd_per_mwh": 94.285558213703,
+      "relative_error_percent": -0.008787979400259882
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 91.6065172171996,
+      "surrogate_usd_per_mwh": 91.59823054789233,
+      "relative_error_percent": -0.009045938606766502
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 88.919189697045,
+      "surrogate_usd_per_mwh": 88.91090288208166,
+      "relative_error_percent": -0.009319489967885008
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 90.65058062112118,
+      "surrogate_usd_per_mwh": 90.64464545712232,
+      "relative_error_percent": -0.006547298382630906
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 88.07441952716,
+      "surrogate_usd_per_mwh": 88.06848422353043,
+      "relative_error_percent": -0.0067389642321114
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 85.49825843319881,
+      "surrogate_usd_per_mwh": 85.49232298993854,
+      "relative_error_percent": -0.006942180307578649
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 87.28757288056717,
+      "surrogate_usd_per_mwh": 87.2929934722216,
+      "relative_error_percent": 0.006210038239751192
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 84.81374633783415,
+      "surrogate_usd_per_mwh": 84.81916679540451,
+      "relative_error_percent": 0.006391013019024783
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 82.33991979510114,
+      "surrogate_usd_per_mwh": 82.34534011858743,
+      "relative_error_percent": 0.006582862237158871
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 72.13784302608858,
+      "surrogate_usd_per_mwh": 72.13785885465633,
+      "relative_error_percent": 2.194211399242363e-05
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 69.32932230404462,
+      "surrogate_usd_per_mwh": 69.32933798038752,
+      "relative_error_percent": 2.261141804904554e-05
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 66.52080158200067,
+      "surrogate_usd_per_mwh": 66.52081710611873,
+      "relative_error_percent": 2.3337238408416283e-05
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 69.19406364927302,
+      "surrogate_usd_per_mwh": 69.18910642397704,
+      "relative_error_percent": -0.007164234956791304
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 66.5067361291184,
+      "surrogate_usd_per_mwh": 66.50177875816637,
+      "relative_error_percent": -0.007453938112977898
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 63.81940860896376,
+      "surrogate_usd_per_mwh": 63.8144510923557,
+      "relative_error_percent": -0.007768039090494394
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 66.48786262639359,
+      "surrogate_usd_per_mwh": 66.48431552533238,
+      "relative_error_percent": -0.005334960278613465
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 63.911701532432424,
+      "surrogate_usd_per_mwh": 63.90815429174049,
+      "relative_error_percent": -0.005550221018812973
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 61.33554043847124,
+      "surrogate_usd_per_mwh": 61.3319930581486,
+      "relative_error_percent": -0.005783564141259578
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 63.99114730706397,
+      "surrogate_usd_per_mwh": 63.99441302278036,
+      "relative_error_percent": 0.005103386724281123
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 61.51732076433094,
+      "surrogate_usd_per_mwh": 61.520586345963274,
+      "relative_error_percent": 0.0053083937852971275
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 59.04349422159794,
+      "surrogate_usd_per_mwh": 59.0467596691462,
+      "relative_error_percent": 0.005530579772261568
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 46.02081967224013,
+      "surrogate_usd_per_mwh": 46.020850686474624,
+      "relative_error_percent": 6.739174729375463e-05
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 43.21229895019618,
+      "surrogate_usd_per_mwh": 43.21232981220582,
+      "relative_error_percent": 7.141950415512355e-05
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 40.403778228152234,
+      "surrogate_usd_per_mwh": 40.40380893793702,
+      "relative_error_percent": 7.600721054767945e-05
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 44.0942825611918,
+      "surrogate_usd_per_mwh": 44.09265463425108,
+      "relative_error_percent": -0.003691922957249627
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 41.40695504103717,
+      "surrogate_usd_per_mwh": 41.405326968440406,
+      "relative_error_percent": -0.003931881963192829
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 38.71962752088254,
+      "surrogate_usd_per_mwh": 38.71799930262973,
+      "relative_error_percent": -0.0042051495767414515
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 42.32514463166602,
+      "surrogate_usd_per_mwh": 42.32398559354243,
+      "relative_error_percent": -0.002738415033609609
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 39.74898353770484,
+      "surrogate_usd_per_mwh": 39.74782435995054,
+      "relative_error_percent": -0.002916245023465436
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 37.17282244374366,
+      "surrogate_usd_per_mwh": 37.17166312635865,
+      "relative_error_percent": -0.0031187230583928915
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 40.694721733560755,
+      "surrogate_usd_per_mwh": 40.69583257333912,
+      "relative_error_percent": 0.002729690070468749
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 38.22089519082774,
+      "surrogate_usd_per_mwh": 38.22200589652204,
+      "relative_error_percent": 0.002906016954229429
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 0.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 35.74706864809473,
+      "surrogate_usd_per_mwh": 35.74817921970496,
+      "relative_error_percent": 0.00310674875514394
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 93.42749154340633,
+      "surrogate_usd_per_mwh": 93.43709960192353,
+      "relative_error_percent": 0.010283973548341763
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 90.69251628179671,
+      "surrogate_usd_per_mwh": 90.70022837592902,
+      "relative_error_percent": 0.00850356175843281
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 87.95754102018708,
+      "surrogate_usd_per_mwh": 87.9633571499345,
+      "relative_error_percent": 0.006612428769559031
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 89.67466351429562,
+      "surrogate_usd_per_mwh": 89.67568694791238,
+      "relative_error_percent": 0.0011412739971961017
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 87.0577078230744,
+      "surrogate_usd_per_mwh": 87.05691710690449,
+      "relative_error_percent": -0.0009082666999615796
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 84.44075213185316,
+      "surrogate_usd_per_mwh": 84.4381472658966,
+      "relative_error_percent": -0.0030848445694675597
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 86.2223683600603,
+      "surrogate_usd_per_mwh": 86.22547030484463,
+      "relative_error_percent": 0.0035976102759960327
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 83.71366803016659,
+      "surrogate_usd_per_mwh": 83.7150308709288,
+      "relative_error_percent": 0.0016279787928175082
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 81.20496770027286,
+      "surrogate_usd_per_mwh": 81.20459143701297,
+      "relative_error_percent": -0.00046335005179365396
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 83.03515760870286,
+      "surrogate_usd_per_mwh": 83.04936413773733,
+      "relative_error_percent": 0.017109052892294585
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 80.62611204148196,
+      "surrogate_usd_per_mwh": 80.63864855007377,
+      "relative_error_percent": 0.015548943480436783
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 78.21706647426105,
+      "surrogate_usd_per_mwh": 78.22793296241021,
+      "relative_error_percent": 0.013892732927711648
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 68.63860371590216,
+      "surrogate_usd_per_mwh": 68.64822627500972,
+      "relative_error_percent": 0.014019164998435585
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 65.90362845429253,
+      "surrogate_usd_per_mwh": 65.9113550490152,
+      "relative_error_percent": 0.011724080910102685
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 63.16865319268292,
+      "surrogate_usd_per_mwh": 63.17448382302069,
+      "relative_error_percent": 0.009230259065340363
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 65.84570628819485,
+      "surrogate_usd_per_mwh": 65.85005836465288,
+      "relative_error_percent": 0.006609506835553169
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 63.228750596973626,
+      "surrogate_usd_per_mwh": 63.231288523645006,
+      "relative_error_percent": 0.004013880785902479
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 60.61179490575241,
+      "surrogate_usd_per_mwh": 60.61251868263712,
+      "relative_error_percent": 0.001194118877090311
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 63.27790417546868,
+      "surrogate_usd_per_mwh": 63.283393554793214,
+      "relative_error_percent": 0.008675033403937604
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 60.76920384557496,
+      "surrogate_usd_per_mwh": 60.77295412087738,
+      "relative_error_percent": 0.006171341839444899
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 58.26050351568124,
+      "surrogate_usd_per_mwh": 58.26251468696155,
+      "relative_error_percent": 0.003452032095419
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 60.90859234337857,
+      "surrogate_usd_per_mwh": 60.92064339303982,
+      "relative_error_percent": 0.019785467366095766
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 58.49954677615765,
+      "surrogate_usd_per_mwh": 58.50992780537626,
+      "relative_error_percent": 0.01774548657329511
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 56.09050120893674,
+      "surrogate_usd_per_mwh": 56.0992122177127,
+      "relative_error_percent": 0.01553027444611832
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 43.84971588839799,
+      "surrogate_usd_per_mwh": 43.859352948095896,
+      "relative_error_percent": 0.02197747351986301
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 41.11474062678837,
+      "surrogate_usd_per_mwh": 41.122481722101384,
+      "relative_error_percent": 0.018828029059658746
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 38.379765365178734,
+      "surrogate_usd_per_mwh": 38.38561049610687,
+      "relative_error_percent": 0.015229720329235086
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 42.016749062094064,
+      "surrogate_usd_per_mwh": 42.02442978139338,
+      "relative_error_percent": 0.01828013701861142
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 39.39979337087285,
+      "surrogate_usd_per_mwh": 39.4056599403855,
+      "relative_error_percent": 0.014889848424903818
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 36.782837679651635,
+      "surrogate_usd_per_mwh": 36.786890099377615,
+      "relative_error_percent": 0.011017148163694479
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 40.33343999087703,
+      "surrogate_usd_per_mwh": 40.3413168047418,
+      "relative_error_percent": 0.01952923893064895
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 37.82473966098332,
+      "surrogate_usd_per_mwh": 37.83087737082597,
+      "relative_error_percent": 0.016226707434485732
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 35.3160393310896,
+      "surrogate_usd_per_mwh": 35.32043793691014,
+      "relative_error_percent": 0.012454980524023718
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 38.78202707805425,
+      "surrogate_usd_per_mwh": 38.791922648342315,
+      "relative_error_percent": 0.025515866584657765
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 36.372981510833334,
+      "surrogate_usd_per_mwh": 36.381207060678754,
+      "relative_error_percent": 0.022614450352298476
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 22.333333333333332,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 33.96393594361242,
+      "surrogate_usd_per_mwh": 33.970491473015194,
+      "relative_error_percent": 0.019301442016783632
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 88.90556179561186,
+      "surrogate_usd_per_mwh": 88.9177029564605,
+      "relative_error_percent": 0.013656244450221955
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 86.24220609276595,
+      "surrogate_usd_per_mwh": 86.25248137874028,
+      "relative_error_percent": 0.011914451681893645
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 83.57885038992005,
+      "surrogate_usd_per_mwh": 83.58725980102005,
+      "relative_error_percent": 0.01006164964074685
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 85.34774988965627,
+      "surrogate_usd_per_mwh": 85.35131117082769,
+      "relative_error_percent": 0.004172671424873542
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 82.79932323214892,
+      "surrogate_usd_per_mwh": 82.80109915462259,
+      "relative_error_percent": 0.0021448514363919813
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 80.25089657464159,
+      "surrogate_usd_per_mwh": 80.2508871384175,
+      "relative_error_percent": -1.1758403328787637e-05
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 82.07433643112081,
+      "surrogate_usd_per_mwh": 82.07998057609257,
+      "relative_error_percent": 0.006876869454175427
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 79.63133030081254,
+      "surrogate_usd_per_mwh": 79.63526294185279,
+      "relative_error_percent": 0.004938560018263871
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 77.18832417050425,
+      "surrogate_usd_per_mwh": 77.19054530761302,
+      "relative_error_percent": 0.0028775558125415657
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 79.05179570361143,
+      "surrogate_usd_per_mwh": 79.06854843966109,
+      "relative_error_percent": 0.021192100572209327
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 76.70583472183007,
+      "surrogate_usd_per_mwh": 76.72094394115105,
+      "relative_error_percent": 0.019697614106894967
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 74.3598737400487,
+      "surrogate_usd_per_mwh": 74.373339442641,
+      "relative_error_percent": 0.01810882928523494
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 65.35746533351957,
+      "surrogate_usd_per_mwh": 65.36962035219594,
+      "relative_error_percent": 0.01859775102099892
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 62.69410963067367,
+      "surrogate_usd_per_mwh": 62.70439877447572,
+      "relative_error_percent": 0.016411659504633747
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 60.03075392782777,
+      "surrogate_usd_per_mwh": 60.039177196755496,
+      "relative_error_percent": 0.01403158943806826
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 62.70604143721415,
+      "surrogate_usd_per_mwh": 62.71293074620069,
+      "relative_error_percent": 0.01098667501351347
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 60.157614779706826,
+      "surrogate_usd_per_mwh": 60.162718729995596,
+      "relative_error_percent": 0.00848429630639913
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 57.60918812219948,
+      "surrogate_usd_per_mwh": 57.6125067137905,
+      "relative_error_percent": 0.005760524838471781
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 60.268008211205554,
+      "surrogate_usd_per_mwh": 60.2760392011331,
+      "relative_error_percent": 0.013325460996482796
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 57.82500208089727,
+      "surrogate_usd_per_mwh": 57.83132156689332,
+      "relative_error_percent": 0.010928639461549317
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 55.38199595058899,
+      "surrogate_usd_per_mwh": 55.38660393265355,
+      "relative_error_percent": 0.008320361130853549
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 58.01815547517843,
+      "surrogate_usd_per_mwh": 58.0327521656909,
+      "relative_error_percent": 0.02515883242568684
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 55.67219449339707,
+      "surrogate_usd_per_mwh": 55.685147667180864,
+      "relative_error_percent": 0.023266864009330313
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 53.32623351161571,
+      "surrogate_usd_per_mwh": 53.33754316867082,
+      "relative_error_percent": 0.021208430279706647
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 41.809368871427296,
+      "surrogate_usd_per_mwh": 41.82153774793139,
+      "relative_error_percent": 0.029105621138447724
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 39.1460131685814,
+      "surrogate_usd_per_mwh": 39.15631617021116,
+      "relative_error_percent": 0.026319414918174466
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 36.4826574657355,
+      "surrogate_usd_per_mwh": 36.49109459249094,
+      "relative_error_percent": 0.023126403999929046
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 40.06433298477205,
+      "surrogate_usd_per_mwh": 40.07455032157368,
+      "relative_error_percent": 0.025502325985349295
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 37.51590632726471,
+      "surrogate_usd_per_mwh": 37.52433830536859,
+      "relative_error_percent": 0.02247574143703357
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 34.96747966975738,
+      "surrogate_usd_per_mwh": 34.97412628916349,
+      "relative_error_percent": 0.01900800248941792
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 38.4616799912903,
+      "surrogate_usd_per_mwh": 38.47209782617363,
+      "relative_error_percent": 0.02708627102530059
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 36.018673860982005,
+      "surrogate_usd_per_mwh": 36.02738019193386,
+      "relative_error_percent": 0.024171714331999716
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 33.57566773067372,
+      "surrogate_usd_per_mwh": 33.582662557694086,
+      "relative_error_percent": 0.020833024309374615
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 36.984515246745424,
+      "surrogate_usd_per_mwh": 36.996955891720724,
+      "relative_error_percent": 0.03363744229794019
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 34.63855426496407,
+      "surrogate_usd_per_mwh": 34.64935139321069,
+      "relative_error_percent": 0.03117083976433843
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 44.666666666666664,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 32.292593283182704,
+      "surrogate_usd_per_mwh": 32.301746894700635,
+      "relative_error_percent": 0.028345854535927195
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 84.6674259659323,
+      "surrogate_usd_per_mwh": 84.67521116579873,
+      "relative_error_percent": 0.0091950354904613
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 82.07381435289452,
+      "surrogate_usd_per_mwh": 82.08163923635279,
+      "relative_error_percent": 0.009533958571283918
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 79.48020273985676,
+      "surrogate_usd_per_mwh": 79.48806730690686,
+      "relative_error_percent": 0.009895001244308865
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 81.29238690316593,
+      "surrogate_usd_per_mwh": 81.29189125856219,
+      "relative_error_percent": -0.000609706053211756
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 78.81069474059694,
+      "surrogate_usd_per_mwh": 78.81023706715989,
+      "relative_error_percent": -0.0005807250380907014
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 76.32900257802797,
+      "surrogate_usd_per_mwh": 76.32858287575759,
+      "relative_error_percent": -0.0005498594979669313
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 78.18662479359901,
+      "surrogate_usd_per_mwh": 78.18848630767978,
+      "relative_error_percent": 0.0023808600073005337
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 75.80759255861832,
+      "surrogate_usd_per_mwh": 75.80949047311607,
+      "relative_error_percent": 0.0025035942096129915
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 73.42856032363761,
+      "surrogate_usd_per_mwh": 73.43049463855235,
+      "relative_error_percent": 0.0026342814106739
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 75.31841596419018,
+      "surrogate_usd_per_mwh": 75.33163857223879,
+      "relative_error_percent": 0.017555610907815655
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 73.03388760037451,
+      "surrogate_usd_per_mwh": 73.04714516288227,
+      "relative_error_percent": 0.01815261783721933
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 0.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 70.74935923655886,
+      "surrogate_usd_per_mwh": 70.76265175352574,
+      "relative_error_percent": 0.01878818000660143
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 62.27908396562891,
+      "surrogate_usd_per_mwh": 62.286882419982845,
+      "relative_error_percent": 0.012521787183383815
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 59.68547235259113,
+      "surrogate_usd_per_mwh": 59.69331049053691,
+      "relative_error_percent": 0.013132404983706714
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 57.09186073955334,
+      "surrogate_usd_per_mwh": 57.09973856109097,
+      "relative_error_percent": 0.01379850198537369
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 59.76038722279198,
+      "surrogate_usd_per_mwh": 59.76321902869847,
+      "relative_error_percent": 0.004738600330589371
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 57.278695060222994,
+      "surrogate_usd_per_mwh": 57.28156483729617,
+      "relative_error_percent": 0.005010199813670901
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 54.79700289765401,
+      "surrogate_usd_per_mwh": 54.79991064589387,
+      "relative_error_percent": 0.005306400142512935
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 57.44410012676348,
+      "surrogate_usd_per_mwh": 57.448347932376485,
+      "relative_error_percent": 0.007394676918304199
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 55.065067891782775,
+      "surrogate_usd_per_mwh": 55.06935209781276,
+      "relative_error_percent": 0.0077802610511712444
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 52.686035656802076,
+      "surrogate_usd_per_mwh": 52.69035626324904,
+      "relative_error_percent": 0.00820066720357282
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 55.30632111660747,
+      "surrogate_usd_per_mwh": 55.31738714767936,
+      "relative_error_percent": 0.020008618994138416
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 53.02179275279181,
+      "surrogate_usd_per_mwh": 53.03289373832284,
+      "relative_error_percent": 0.020936646904390344
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 40.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 50.73726438897616,
+      "surrogate_usd_per_mwh": 50.74840032896631,
+      "relative_error_percent": 0.021948246765490786
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 39.8907419653255,
+      "surrogate_usd_per_mwh": 39.89855367416698,
+      "relative_error_percent": 0.019582761454439712
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 37.29713035228772,
+      "surrogate_usd_per_mwh": 37.30498174472105,
+      "relative_error_percent": 0.02105092901028005
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 0.0,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 34.70351873924994,
+      "surrogate_usd_per_mwh": 34.71140981527511,
+      "relative_error_percent": 0.02273854730543423
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 38.22838754241802,
+      "surrogate_usd_per_mwh": 38.234546798834764,
+      "relative_error_percent": 0.016111734793700094
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 35.74669537984903,
+      "surrogate_usd_per_mwh": 35.75289260743246,
+      "relative_error_percent": 0.017336504864506885
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 3.8333333333333335,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 33.265003217280054,
+      "surrogate_usd_per_mwh": 33.27123841603016,
+      "relative_error_percent": 0.018744019681515844
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 36.70157545992793,
+      "surrogate_usd_per_mwh": 36.7082095570732,
+      "relative_error_percent": 0.018075783020576885
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 34.322543224947225,
+      "surrogate_usd_per_mwh": 34.32921372250947,
+      "relative_error_percent": 0.019434741529877897
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 7.666666666666667,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 31.94351098996653,
+      "surrogate_usd_per_mwh": 31.95021788794575,
+      "relative_error_percent": 0.020996120249039407
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 0.0
+      },
+      "full_model_usd_per_mwh": 35.29422626902477,
+      "surrogate_usd_per_mwh": 35.30313572311996,
+      "relative_error_percent": 0.025243375580119576
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 27.5
+      },
+      "full_model_usd_per_mwh": 33.00969790520911,
+      "surrogate_usd_per_mwh": 33.01864231376343,
+      "relative_error_percent": 0.027096305394880282
+    },
+    {
+      "sliders": {
+        "site": 15.0,
+        "constr": 67.0,
+        "reactor": 80.0,
+        "cf": 11.5,
+        "om": 55.0
+      },
+      "full_model_usd_per_mwh": 30.72516954139345,
+      "surrogate_usd_per_mwh": 30.73414890440691,
+      "relative_error_percent": 0.029224779382808208
+    }
+  ]
+}
