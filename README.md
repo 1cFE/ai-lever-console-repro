@@ -248,3 +248,7 @@ refit coefficients agree to 0.001 $/MWh, so there is no accuracy reason to.
 Cloudflare Pages serves the standalone console at [ai.1cf.energy](https://ai.1cf.energy/). Configure the build command as `mkdir -p dist && cp console.html dist/index.html` and the output directory as `dist`. Only the public console HTML is deployed. The source and numerical checks remain in this repository; no article drafts or editorial history are included.
 
 The source and reproduction links are visible in the console footer. The scenario bands retain the original numerical breakpoints, while replacing claims of demonstrated percentage savings and regulatory or physical floors with explicit conditions. The site slider displays the remaining nominal indirect fraction as a percentage of direct cost. Its explanations use that same value without rounding away half points.
+
+## License
+
+Original code and associated documentation in this repository are available under the [MIT License](LICENSE), copyright 2026 Astera Institute, consistent with [Astera's Open Science Policy](https://astera.org/open-science-policy/). Third-party material retains its original copyright and license. The [third-party notices](THIRD_PARTY_NOTICES.md) preserve the upstream 1costingFE MIT notice for the copied input files. This repository's license does not relicense third-party material.
